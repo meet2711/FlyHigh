@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+* {
+    font-family: 'Nunito Sans';
+}
+::-webkit-scrollbar {
+    height: 10px;
+    width: 7px;
+    background: #FCFBF9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1DB4FF   ;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #0e72a4;
+}
+::-webkit-scrollbar-corner {
+    background: #000;
+}
+#header{
+    position: sticky;
+        top: 0;
+        z-index: 5;
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+}
+#nav {
+    margin-left: 50em;
+    padding: 5px;
+}
+.form_icon{
+    padding-top: 6px;
+    /* margin-right: 7px; */
+}
+.nav-link {
+    color: grey;
+}
+
+.nav-item {
+    padding: 0px 10px;
+}
+
+#outerWrap {
+    position: relative;
+    z-index: 0;
+    /* background-image: url("../images/Hero\ \(1\).png"); */
+    /* height: 400px; */
+    /* width: 650px; */
+}
+
+#layer1 {
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    height: 97px;
+    width: 80%;
+    top: -50px;
+    justify-content: center;
+    align-items: center;
+    left: 130px;
+
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 21px;
+}
+.form input[type="date"]::before{
+    content: attr(placeholder);
+}
+.form input{
+    width: 150px;
+    /* border: 1px; */
+}
+
+.home_search_button{
+    border: none;
+    color: white;   
+    background-color: #1DB4FF;
+    height: 30px;
+    width: 75px;
+    border-radius: 6px;
+}
+.col-12{
+    padding-right: 8px;
+}
+
+.home_reviews p {
+    padding: 2px;
+}
+.home_card {
+    padding: 10px;
+    border: 0;
+}
+.home_places .card img {
+    border-radius: 20px;
+}
+
+.bold {
+    color: #1DB4FF;
+    font-weight: bold;
+}
+
+.price {
+    color: #6E7491;
+    position: absolute;
+    right: 20px;
+}
+
+.all {
+    color: #6E7491;
+    position: absolute;
+    right: 30px;
+
+}
+
+.home_flight_deals {
+    padding: 0px 15px;
+    margin-top: 0px;
+    color: #6E7491;
+}

@@ -1,0 +1,36 @@
+.footer-distributed .footer-icons-demo {
+    margin-top: 25px;
+    display: flex;
+}
+
+#coporate {
+    margin: 0rem 5rem;
+}
+
+.footer-distributed .footer-icons-demo a {
+    display: inline-block;
+    width: 30px;
+    height: 35px;
+    cursor: pointer;
+    /* background-color: #33383b; */
+    border-radius: 2px;
+    font-size: 20px;
+    color: grey;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+
+/* Card*/
+.footer_card {
+    padding: 10px;
+    border: 0 !important;
+}
+#aboutUs .card .card-text {
+    color: grey;
+}
+
+#aboutUs .card img {
+    margin: 5px 0px;
+}

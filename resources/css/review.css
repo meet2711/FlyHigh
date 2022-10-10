@@ -1,0 +1,85 @@
+.testimonial {
+    padding: 2rem 0;
+    /* background-color: #F5F5F5; */
+}
+.testimonial .testi-slide {
+    border: 1.5px solid #00000069;
+    border-radius: 49px;
+    background-color: #fff;
+    padding: 23px 31px 15px 27px;
+}
+
+.testimonial .testi-slide .man-img-box {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1.5px solid #00000042;
+    padding-bottom: 20px;
+    margin-bottom: 16px;
+}
+
+.testimonial .testi-slide .circle img {
+    width: 85px;
+}
+
+.testimonial .testi-slide .ceo {
+    padding-right: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.testimonial .testi-slide .ceo h3 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1DB4FF;
+    margin-bottom: 3px;
+}
+
+.testimonial .testi-slide .ceo p {
+    margin-bottom: 0;
+}
+
+.testimonial .testi-slide .left-quote img {
+    width: 74px;
+}
+
+.testimonial .left-quote {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial .slide-content p {
+    text-align: center;
+}
+
+.testimonial .slick-dots li button:before {
+    font-size: 19px;
+    padding-top: 20px;
+}
+
+.testimonial .your-class ul.slick-dots {
+    bottom: -40px;
+}
+
+.testimonial .your-class .slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: #1DB4FF;
+}
+
+.testimonial .heading h5 {
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+}
+
+.testimonial .heading h2 {
+    font-size: 35px;
+    font-weight: bold;
+    padding-top: 2px;
+    color: #000;
+}
+
+.testimonial .heading {
+    text-align: center;
+    padding-bottom: 3rem;
+}

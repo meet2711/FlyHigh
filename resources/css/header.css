@@ -1,0 +1,21 @@
+#header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+}
+
+#nav {
+    margin-left: 50em;
+    padding: 5px;
+}
+
+.nav-link {
+    color: grey;
+}
+
+.nav-item {
+    padding: 0px 10px;
+}
