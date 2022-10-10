@@ -48,7 +48,7 @@
 
             <div class="col-right">
                 <div class="login-form">
-                    <h2>Sign Up</h2>
+                    <h2>Create Account</h2>
                     <form id="signup">
                         @csrf
                         <p>
@@ -60,7 +60,7 @@
                             <input type="password" name="password" placeholder="Password" autocomplete="off">
                         </p>
                         <p>
-                            <input type="submit" value="Sign In" id="log_btn">
+                            <input type="submit" value="Sign Up" id="log_btn">
                         </p>
 
                     </form>
