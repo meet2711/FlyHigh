@@ -38,33 +38,8 @@
     outline: 3px solid #ddd;
 }
 
-/* .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    background-color: #f6f6f6;
-    min-width: 230px;
-    overflow: auto;
-    border: 1px solid #ddd;
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown a:hover {background-color: #ddd;}
-  
-  .show {display: block;} */
-
 .searchfilter {
-    margin-top: 100px;
+    margin-top: 40px;
     padding-top: 60px;
     margin-left: 240px;
 }
@@ -86,11 +61,12 @@
 }
 
 .pricegridtable {
-    border-collapse: collapse;
+    border-collapse: separate;
     border-style: inset;
-    /* size: fit-content; */
+    border-color: aqua;
 }
 
+ 
 
 .selectedflightdetails table th,
 td {
@@ -122,4 +98,49 @@ td {
 .places .card img {
     border-radius: 10px;
     height: 240px;
+}
+
+.flightinfo{
+    margin-top: 100px;
+}
+
+.form_icon{
+    padding-top: 6px;
+    /* margin-right: 7px; */
+}
+
+#travelinfo{
+    margin-left: 100px;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    height: 67px;
+    width: 1200px;
+    top: -50px;
+    justify-content: center;
+    align-items: center;
+
+
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 21px;
+}
+
+
+.form input[type="date"]::before{
+    content: attr(placeholder);
+}
+.form input{
+    width: 150px;
+    /* border: 1px; */
+}
+
+.mybutton{
+    border: none;
+    color: white;   
+    background-color: #1DB4FF;
+    height: 30px;
+    width: 75px;
+    border-radius: 16px;
+
 }

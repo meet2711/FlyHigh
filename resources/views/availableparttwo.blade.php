@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="../resources/css/availableflights.css">
     <link rel="stylesheet" href="../resources/css/footer.css">
     <link rel="stylesheet" href="../resources/css/header.css">
-    
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
     <!-- Font awesome symbols -->
@@ -35,7 +34,6 @@
 
 <body>
     @include('header')
-
     <div id="travelinfo">
         <div style="margin-top: 100px; margin-left:100px">
                 <div style="--bs-gutter-y: -1rem;--bs-gutter-x: 0rem;margin-left: 1rem;margin-top: 160px;">
@@ -80,8 +78,28 @@
         </div>
 
     </div>
-    
-    
+    <div class="searchfilter">
+        <select id="multipleselect" multiple name="native-select" placeholder="Max Price" data-search="true" data-silent-initial-value-set="true">
+            <option value="1">$100</option>
+            <option value="2">$200</option>
+            <option value="3">$300</option>
+        </select>
+        <select id="multipleselect" multiple name="native-select" placeholder="Times" data-search="true" data-silent-initial-value-set="true">
+            <option value="1">11 AM - 1PM</option>
+            <option value="2">3PM - 5PM</option>
+            <option value="3">8PM - 11PM</option>
+        </select>
+        <select id="multipleselect" multiple name="native-select" placeholder="Airlines" data-search="true" data-silent-initial-value-set="true">
+            <option value="1" disabled>Air India</option>
+            <option value="2">Indigo</option>
+            <option value="3">Akasa Air</option>
+        </select>
+        <select id="multipleselect" multiple name="native-select" placeholder="Seat Class" data-search="true" data-silent-initial-value-set="true">
+            <option value="1" disabled>Business</option>
+            <option value="2">Economy</option>
+            <option value="3">Broke</option>
+        </select>
+    </div>
 
 
     <!--dropdown list ends with this div -->
@@ -163,72 +181,25 @@
             </table>
 
         </div>
-        <div style="margin-top: 3em; margin-left:3em">
-
-<p><b>Price Grids(Flexible Dates)</b></p>
-<table class="pricegridtable" style="border: none;
-border-style: groove;
-border-radius: 10px;">
-    <tr>
-        <td></td>
-        <td>2/12</td>
-        <td>2/13</td>
-        <td>2/14</td>
-        <td>2/15</td>
-        <td>2/16</td>
-    </tr>
-    <tr>
-        <!-- <td></td> -->
-        <td>2/12</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-    </tr>
-    <tr>
-        <!-- <td></td> -->
-        <td>2/12</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-    </tr>
-    <tr>
-        <!-- <td></td> -->
-        <td>2/12</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-    </tr>
-    <tr>
-        <!-- <td></td> -->
-        <td>2/12</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-    </tr>
-    <tr>
-        <!-- <td></td> -->
-        <td>2/12</td>
-        <td>$837</td>
-        <td>$837</td>
-
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-    </tr>
-</table>
-
-</div>     
-        
+        <div style="margin-top: 100px;">
+        <table style="border: 1px solid black;">
+            <tr style="padding-bottom: 100px;">
+                <img src="../resources/images/Air-India-logo.png" alt="" height="50px" width="50px" style="padding-right: 10px;">
+                <span style="padding-right:100px">Air India</span>  16h 45m
+                <br>
+                <span style="padding-right:50px; padding-left:50px">AI603</span>  7:00 AM - 4:15 PM
+            </tr>
+            <hr>
+            <tr>
+                <span style="padding-left:100px; padding-right:80px;"><b>SubTotal</b></span>$624
+                <br>
+                <span style="padding-left:100px; padding-right:40px;"><b>Taxes And Fees</b></span>$16
+                <br>
+                <span style="padding-left:100px; padding-right:110px;"><b>Total</b></span>$640
+            </tr>
+        </table>
+        </div>
     </div>
-    
 
     <div class="places">
         <div style="margin-top: 2em;">
@@ -328,23 +299,6 @@ border-radius: 10px;">
         VirtualSelect.init({
             ele: '#multipleselect'
         });
-    </script>
-    <script>
-        function passengerAdd() {
-    var pdetails = document.getElementById('pnum');
-    var val = pnum.value;
-    if (val < 6)
-        val++;
-    pdetails.value = val;
-}
-
-function passengerSub() {
-    var pdetails = document.getElementById('pnum');
-    var val = pnum.value;
-    if (val > 0)
-        val--;
-    pdetails.value = val;
-}
     </script>
 </body>
 

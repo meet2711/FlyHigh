@@ -20,3 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/home', [NewController::class, 'home']);
+Route::post('/add', [NewController::class, 'add']);
+Route::delete('/delete/{id}', [NewController::class, 'delete']);
+Route::put('/update', [NewController::class, 'update']);

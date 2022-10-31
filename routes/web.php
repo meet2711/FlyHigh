@@ -24,4 +24,5 @@ Route::get('/', function () {
 Route::view('/home', 'homepage');
 Route::view('/signup', 'signup');
 Route::view('/availableflights', 'availableflights');
+Route::view('/availableparttwo', 'availableparttwo');
 Route::post('/auth', [SignUpController::class, 'insert']);
