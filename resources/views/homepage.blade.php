@@ -40,40 +40,40 @@
                 <option value="1">Economy</option>
                 <option selected value="2">Business Class</option>
             </select>
-            <div style="--bs-gutter-y: -1rem;--bs-gutter-x: 0rem;margin-left: 1rem;margin-top: 16px;">
+            <div style="--bs-gutter-y: -1rem;--bs-gutter-x: 0rem;margin-left: 1rem;margin-top: 16px;margin-right: 1rem;">
 
-                <form class="row row-cols-lg-auto g-3 align-items-center form">
-                    <div class="col-12">
+                <form style="display: flex; justify-content:space-between ">
+                    <div>
                         <label class="visually-hidden" for="inlineFormInputGroupUsername">From</label>
-                        <div>
+                        <div style="display: flex;">
                             <i class="fa fa-plane-departure form_icon"></i>
                             <input type="text" class="form-input" placeholder="From where?">
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div>
+                    <div>
+                        <div style="display: flex;">
                             <i class="fa-solid fa-plane-arrival form_icon"></i>
                             <input type="text" class="form-input" placeholder="Where to?">
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div>
                         <div>
                             <input type="date" id="datefield" class="form-input" placeholder="Departure: &nbsp">
                         </div>
                     </div>
-                    <div class="col-12" id="optional-field">
-                        <div>
+                    <div>
+                        <div id="optional-field">
                             <input type="date" class="form-input" id="datefield" placeholder="Return: &nbsp">
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div>
-                            <i class="fa fa-minus" aria-hidden="true" onclick="passengerSub()"></i>
+                    <div>
+                        <div style="display: flex;">
+                            <i class="fa fa-minus form_icon" aria-hidden="true" onclick="passengerSub()"></i>
                             <input type="number" id="pnum" class="form-input" placeholder="No of Adults" disabled>
-                            <i class="fa fa-plus" aria-hidden="true" onclick="passengerAdd()"></i>
+                            <i class="fa fa-plus form_icon" aria-hidden="true" onclick="passengerAdd()"></i>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div>
                         <a href="public/flights"><button type="submit" class="home_search_button">Search</button></a>
                     </div>
                 </form>
