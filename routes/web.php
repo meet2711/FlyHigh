@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewController;
 use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\FlightController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +25,9 @@ Route::get('/', function () {
 Route::view('/home', 'homepage');
 Route::view('/signup', 'signup');
 Route::view('/availableflights', 'availableflights');
+
 Route::view('/availableparttwo', 'availableparttwo');
 Route::post('/auth', [SignUpController::class, 'insert']);
+Route::post('/flights', [FlightController::class, 'search_flight']);
+
+Route::view('/new','new');

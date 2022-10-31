@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="../resources/css/availableflights.css">
     <link rel="stylesheet" href="../resources/css/footer.css">
     <link rel="stylesheet" href="../resources/css/header.css">
-    
+
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
     <!-- Font awesome symbols -->
@@ -38,38 +38,33 @@
 
     <div id="travelinfo">
         <div style="margin-top: 100px; margin-left:100px">
-                <div style="--bs-gutter-y: -1rem;--bs-gutter-x: 0rem;margin-left: 1rem;margin-top: 160px;">
+            <div style="--bs-gutter-y: -1rem;--bs-gutter-x: 0rem;margin-left: 1rem;margin-top: 160px;">
                 <form class="row row-cols-lg-auto g-3 align-items-center form">
-                    <div class="row-12" >
+                    <div class="row-12">
                         <div>
                             <i class="fa fa-plane-departure form_icon"></i>
-                            <input type="text" class="form-input" placeholder="BOM" disabled style="width:70%">
+                            <input type="text" class="form-input" placeholder="{{Session::get('flight')[0]->arr}}" disabled style="width:70%">
                         </div>
                     </div>
                     <div class="row-12">
                         <div>
                             <i class="fa-solid fa-plane-arrival form_icon"></i>
-                            <input type="text" class="form-input" placeholder="BLR" disabled style="width:70%">
+                            <input type="text" class="form-input" placeholder="{{Session::get('flight')[0]->dep}}" disabled style="width:70%">
                         </div>
                     </div>
                     <div class="row-12">
                         <div>
-                            <input type="date" id="datefield" class="form-input" placeholder="Departure: &nbsp"
-                            style="margin-right: 20px;">
+                            <input type="date" id="datefield" class="form-input" style="margin-right: 20px;" value="{{Session::get('flight')[0]->dep_date}}" disabled>
                         </div>
                     </div>
                     <div class="row-12" id="optional-field">
                         <div>
-                            <input type="date" class="form-input" id="datefield" placeholder="Return: &nbsp"
-                            style="margin-right: 20px;">
+                            <input type="date" class="form-input" id="datefield" placeholder="" style="margin-right: 20px;" value="{{Session::get('flight')[0]->arr_date}}" disabled>
                         </div>
                     </div>
                     <div class="row-12">
                         <div>
-                            <i class="fa fa-minus" aria-hidden="true" onclick="passengerSub()"></i>
                             <input type="number" id="pnum" class="form-input" placeholder="No of Adults">
-                            <i class="fa fa-plus" aria-hidden="true" onclick="passengerAdd()"
-                            style="margin-right: 20px;"></i>
                         </div>
                     </div>
                     <div class="row-12">
@@ -80,8 +75,8 @@
         </div>
 
     </div>
-    
-    
+
+
 
 
     <!--dropdown list ends with this div -->
@@ -94,7 +89,6 @@
                 <thead>
                     <tr>
                         <th>AirLines</th>
-                        <th>Duration</th>
                         <th>Departure</th>
                         <th>Arrival</th>
                         <th>Halts</th>
@@ -102,133 +96,87 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach(Session::get('flight') as $f)
                     <tr>
                         <td><img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">Air India</td>
-                        <td>16h 45m</td>
-                        <td>7:00 AM</td>
-                        <td>4:15PM</td>
-                        <td>Non Stop</td>
-                        <td>$624</td>
+                        
+                        <td>{{ $f->dep_time}}</td>
+                        <td>{{ $f->arr_time}}</td>
+                        <td>{{ $f->halts}}</td>
+                        <td>${{ $f->price}}</td>
                     </tr>
-                    <tr>
-                        <td><img id="" src="../resources/images/indigo-logo.png" style="width: 50px; height: 40px; margin-right: 10px;">IndiGO</td>
-                        <td>16h 45m</td>
-                        <td>7:00 AM</td>
-                        <td>4:15PM</td>
-                        <td>Non Stop</td>
-                        <td>$624</td>
-                    </tr>
-                    <tr>
-                        <td><img src="../resources/images/akasaairlogo.jpg" style="width: 50px; height: 50px; margin-right: 10px;">Akasa Air</td>
-                        <td>16h 45m</td>
-                        <td>7:00 AM</td>
-                        <td>4:15PM</td>
-                        <td>Non Stop</td>
-                        <td>$624</td>
-                    </tr>
-                    <tr>
-                        <td><img src="../resources/images/gofirst.png" style="width: 50px; height: 40px; margin-right: 10px;">Go
-                            First</td>
-                        <td>16h 45m</td>
-                        <td>7:00 AM</td>
-                        <td>4:15PM</td>
-                        <td>Non Stop</td>
-                        <td>$624</td>
-                    </tr>
-                    <tr>
-                        <td><img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 40px; margin-right: 10px;">Air India</td>
-                        <td>16h 45m</td>
-                        <td>7:00 AM</td>
-                        <td>4:15PM</td>
-                        <td>Non Stop</td>
-                        <td>$624</td>
-                    </tr>
-                    <tr>
-                        <td><img src="../resources/images/indigo-logo.png" style="width: 50px; height: 40px; margin-right: 10px;">IndiGO</td>
-                        <td>16h 45m</td>
-                        <td>7:00 AM</td>
-                        <td>4:15PM</td>
-                        <td>Non Stop</td>
-                        <td>$624</td>
-                    </tr>
-                    <tr>
-                        <td><img src="../resources/images/akasaairlogo.jpg" style="width: 50px; height: 40px; margin-right: 10px;">Akasa Air</td>
-                        <td>16h 45m</td>
-                        <td>7:00 AM</td>
-                        <td>4:15PM</td>
-                        <td>Non Stop</td>
-                        <td>$624</td>
-                    </tr>
+                    @endforeach
+                    
                 </tbody>
             </table>
 
         </div>
         <div style="margin-top: 3em; margin-left:3em">
 
-<p><b>Price Grids(Flexible Dates)</b></p>
-<table class="pricegridtable" style="border: none;
+            <p><b>Price Grids(Flexible Dates)</b></p>
+            <table class="pricegridtable" style="border: none;
 border-style: groove;
 border-radius: 10px;">
-    <tr>
-        <td></td>
-        <td>2/12</td>
-        <td>2/13</td>
-        <td>2/14</td>
-        <td>2/15</td>
-        <td>2/16</td>
-    </tr>
-    <tr>
-        <!-- <td></td> -->
-        <td>2/12</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-    </tr>
-    <tr>
-        <!-- <td></td> -->
-        <td>2/12</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-    </tr>
-    <tr>
-        <!-- <td></td> -->
-        <td>2/12</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-    </tr>
-    <tr>
-        <!-- <td></td> -->
-        <td>2/12</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-    </tr>
-    <tr>
-        <!-- <td></td> -->
-        <td>2/12</td>
-        <td>$837</td>
-        <td>$837</td>
+                <tr>
+                    <td></td>
+                    <td>2/12</td>
+                    <td>2/13</td>
+                    <td>2/14</td>
+                    <td>2/15</td>
+                    <td>2/16</td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>2/12</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>2/12</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>2/12</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>2/12</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>2/12</td>
+                    <td>$837</td>
+                    <td>$837</td>
 
-        <td>$837</td>
-        <td>$837</td>
-        <td>$837</td>
-    </tr>
-</table>
+                    <td>$837</td>
+                    <td>$837</td>
+                    <td>$837</td>
+                </tr>
+            </table>
 
-</div>     
-        
+        </div>
+
     </div>
-    
+
 
     <div class="places">
         <div style="margin-top: 2em;">
@@ -331,20 +279,20 @@ border-radius: 10px;">
     </script>
     <script>
         function passengerAdd() {
-    var pdetails = document.getElementById('pnum');
-    var val = pnum.value;
-    if (val < 6)
-        val++;
-    pdetails.value = val;
-}
+            var pdetails = document.getElementById('pnum');
+            var val = pnum.value;
+            if (val < 6)
+                val++;
+            pdetails.value = val;
+        }
 
-function passengerSub() {
-    var pdetails = document.getElementById('pnum');
-    var val = pnum.value;
-    if (val > 0)
-        val--;
-    pdetails.value = val;
-}
+        function passengerSub() {
+            var pdetails = document.getElementById('pnum');
+            var val = pnum.value;
+            if (val > 0)
+                val--;
+            pdetails.value = val;
+        }
     </script>
 </body>
 

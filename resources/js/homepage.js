@@ -20,7 +20,7 @@ function myfunction() {
 
 }
 myfunction();
-console.log("hi");
+// console.log("hi");
 
 function passengerAdd() {
     var pdetails = document.getElementById('pnum');

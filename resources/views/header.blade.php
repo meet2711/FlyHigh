@@ -18,7 +18,7 @@
                         <a class="nav-link" href="#">Packages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.google.com" style="background-color: #1DB4FF; color:white;border-radius: 5px; ">Sign up</a>
+                        <a class="nav-link" href="signup" style="background-color: #1DB4FF; color:white;border-radius: 5px; ">Sign up</a>
                     </li>
                 </ul>
             </div>

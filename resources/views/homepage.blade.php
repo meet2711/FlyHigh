@@ -42,34 +42,35 @@
             </select>
             <div style="--bs-gutter-y: -1rem;--bs-gutter-x: 0rem;margin-left: 1rem;margin-top: 16px;margin-right: 1rem;">
 
-                <form style="display: flex; justify-content:space-between ">
+                <form style="display: flex; justify-content:space-between " action="flights" method="POST">
+                @csrf
                     <div>
                         <label class="visually-hidden" for="inlineFormInputGroupUsername">From</label>
                         <div style="display: flex;">
                             <i class="fa fa-plane-departure form_icon"></i>
-                            <input type="text" class="form-input" placeholder="From where?">
+                            <input type="text" name="arrival" class="form-input" placeholder="From where?">
                         </div>
                     </div>
                     <div>
                         <div style="display: flex;">
                             <i class="fa-solid fa-plane-arrival form_icon"></i>
-                            <input type="text" class="form-input" placeholder="Where to?">
+                            <input type="text" name="departure" class="form-input" placeholder="Where to?">
                         </div>
                     </div>
                     <div>
                         <div>
-                            <input type="date" id="datefield" class="form-input" placeholder="Departure: &nbsp">
+                            <input type="date" class="form-input" id="datefield" name="arrival_date" placeholder="Departure: &nbsp">
                         </div>
                     </div>
                     <div>
                         <div id="optional-field">
-                            <input type="date" class="form-input" id="datefield" placeholder="Return: &nbsp">
+                            <input type="date" class="form-input" id="datefield" name="departure_date" placeholder="Return: &nbsp">
                         </div>
                     </div>
                     <div>
                         <div style="display: flex;">
                             <i class="fa fa-minus form_icon" aria-hidden="true" onclick="passengerSub()"></i>
-                            <input type="number" id="pnum" class="form-input" placeholder="No of Adults" disabled>
+                            <input type="number" id="pnum" class="form-input" name="adults" placeholder="No of Adults">
                             <i class="fa fa-plus form_icon" aria-hidden="true" onclick="passengerAdd()"></i>
                         </div>
                     </div>
@@ -212,9 +213,12 @@
     <script src="../resources/js/review.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <script src="../resources/js/homepage.js">
+    <script src="../resources/js/homepage.js"></script>
 
-    </script>
 </body>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+<!-- <script src="../resources/js/main.js"></script> -->
 
 </html>
