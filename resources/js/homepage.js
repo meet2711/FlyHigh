@@ -17,7 +17,10 @@ function myfunction() {
             css[i].style.width = '190px';
         }
     }
+
 }
+myfunction();
+console.log("hi");
 
 function passengerAdd() {
     var pdetails = document.getElementById('pnum');
