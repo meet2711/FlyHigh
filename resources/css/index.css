@@ -71,7 +71,7 @@
     content: attr(placeholder);
 }
 .form input{
-    width: 150px;
+    width: 50px;
     /* border: 1px; */
 }
 
