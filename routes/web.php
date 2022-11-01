@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::view('/home', 'homepage');
 Route::view('/signup', 'signup');
 Route::view('/availableflights', 'availableflights');
-
+Route::view('/form','form');
 Route::view('/availableparttwo', 'availableparttwo');
 Route::post('/auth', [SignUpController::class, 'insert']);
 Route::post('/flights', [FlightController::class, 'search_flight']);
