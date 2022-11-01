@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=Roboto&display=swap');
+body{
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+input {
+    color: var(--dl-color-gray-black);
+    cursor: auto;
+    padding: 0.5rem 1rem;
+    border-color: var(--dl-color-gray-black);
+    border-width: 1px;
+    border-radius: 4px;
+    background-color: var(--dl-color-gray-white);
+}
+.middle1{
+    padding-left: 30px;
+}
+td{
+    padding-bottom: 25px;
+}
+label{
+  top: 41px;
+  left: 481px;
+  color: grey;
+  width: 687px;
+}
+.form-div{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 5rem;
+}
+.tcheck{
+    padding-right: 6rem;
+}
+.table2{
+    column-width: 100px;
+}
+.imgdiv{
+    padding-left: 20rem;
+}
+.qty{
+    text-align: center;
+    width: 2rem;
+}
+.qtylabel{
+    text-align: center;
+    width: 3rem;
+}
