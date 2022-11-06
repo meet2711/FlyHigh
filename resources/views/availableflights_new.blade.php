@@ -41,34 +41,34 @@
             <div style="--bs-gutter-y: -1rem;--bs-gutter-x: 0rem;margin-left: 1rem;margin-top: 16px;margin-right: 1rem;">
 
                 <form style="display: flex; justify-content:space-between; padding-top:50px;" action="flights" method="POST">
-
+                    @csrf
                     <div>
                         <div style="display: flex;">
                             <i class="fa fa-plane-departure form_icon"></i>
-                            <input type="text" class="form-input" placeholder="{{Session::get('flight')[0]->arr}}" disabled style="width:150px">
+                            <input type="text" class="form-input" placeholder="{{Session::get('flight')[0]->arr}}" style="width:150px">
 
                         </div>
                     </div>
                     <div>
                         <div style="display: flex;">
                             <i class="fa-solid fa-plane-arrival form_icon"></i>
-                            <input type="text" class="form-input" placeholder="{{Session::get('flight')[0]->dep}}" disabled style="width:150px">
+                            <input type="text" class="form-input" placeholder="{{Session::get('flight')[0]->dep}}" style="width:150px">
                         </div>
                     </div>
                     <div>
                         <div>
-                            <input type="date" id="datefield" class="form-input" style="width:150px;" value="{{Session::get('flight')[0]->dep_date}}" disabled>
+                            <input type="date" id="datefield" class="form-input" style="width:150px;" value="{{Session::get('arr_date')}}" >
                         </div>
                     </div>
                     <div>
                         <div id="optional-field">
-                            <input type="date" class="form-input" id="datefield" placeholder="" style="width:150px;" value="{{Session::get('flight')[0]->arr_date}}" disabled>
+                            <input type="date" class="form-input" id="datefield" style="width:150px;" value="{{Session::get('ret_date')}}">
                         </div>
                     </div>
                     <div>
                         <div style="display: flex;">
                             <i class="fa fa-minus form_icon" aria-hidden="true" onclick="passengerSub()" style="padding-right: 5px;"></i>
-                            <input type="number" id="pnum" class="form-input" name="adults" placeholder="No of Adults" style="width:150px">
+                            <input type="number" id="pnum" class="form-input" name="adults" placeholder="No of Adults" style="width:150px" value="{{Session::get('adults')}}">
                             <i class="fa fa-plus form_icon" aria-hidden="true" onclick="passengerAdd()" style="padding-left: 5px;"></i>
                         </div>
                     </div>

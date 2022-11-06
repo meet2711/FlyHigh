@@ -18,7 +18,7 @@ class FlightController extends Controller
         // return redirect()->route('availablefights',  [$flights]);
         // return view('availableflights', ["flights" => $flights]);
         // return $req;
-        return redirect('availableflights')->with(array("flight"=> $flights, "returnf"=>$rf));
+        return redirect('availableflights')->with(array("flight"=> $flights, "returnf"=>$rf,"arr_date"=>$req->arrival_date,"ret_date"=>$req->departure_date, "adults"=>$req->adults));
     }
 
     public function select_flight(Request $req){
