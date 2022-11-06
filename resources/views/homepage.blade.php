@@ -27,7 +27,7 @@
 
     @include('header')
 
-    <div id="outerWrap"><img src="../resources/images/Hero (1).png" alt="" width="100%" height="500px"></div>
+    <div id="outerWrap"><img src="../resources/images/Hero (1).png" alt="" width="100%" height="600px"></div>
     <div id="layer1">
         <div>
             <i class="fa fa-plane" aria-hidden="true" style="margin-left: 20px;"></i>
@@ -43,7 +43,7 @@
             <div style="--bs-gutter-y: -1rem;--bs-gutter-x: 0rem;margin-left: 1rem;margin-top: 16px;margin-right: 1rem;">
 
                 <form style="display: flex; justify-content:space-between " action="flights" method="POST">
-                @csrf
+                    @csrf
                     <div>
                         <label class="visually-hidden" for="inlineFormInputGroupUsername">From</label>
                         <div style="display: flex;">
@@ -69,9 +69,9 @@
                     </div>
                     <div>
                         <div style="display: flex;">
-                            <i class="fa fa-minus form_icon" aria-hidden="true" onclick="passengerSub()"></i>
+                            <i class="fa fa-minus form_icon" aria-hidden="true" onclick="passengerSub()" style="padding-right: 5px;"></i>
                             <input type="number" id="pnum" class="form-input" name="adults" placeholder="No of Adults">
-                            <i class="fa fa-plus form_icon" aria-hidden="true" onclick="passengerAdd()"></i>
+                            <i class="fa fa-plus form_icon" aria-hidden="true" onclick="passengerAdd()" style="padding-left: 5px;"></i>
                         </div>
                     </div>
                     <div>
@@ -86,25 +86,24 @@
     <div class="home_flight_deals">
         <p>Find your next adventure with these <span class="bold">flight deals</span><span class="all">All <i class='fa fa-arrow-right' style="color:#6E7491;"></i></span></p>
     </div>
-    <div class="home_places">
+    <div class="places">
         <div class="card-group">
-            <div class="card home_card">
+            <div class="card ">
                 <img src="../resources/images/image1.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">The Bund, <span class="bold">Shanghai</span></span><span class="price">$598</span></h5>
                     </h5>
                     <p class="card-text">China's most international city</p>
-                    <p class="card-text"><small class="text-muted"></small></p>
                 </div>
             </div>
-            <div class="card home_card">
+            <div class="card">
                 <img src="../resources/images/image2.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Sydney Opera House, <span class="bold">Sydney</span><span class="price">$981</span></h5>
                     <p class="card-text">Take a stroll along the famous harbor</p>
                 </div>
             </div>
-            <div class="card home_card">
+            <div class="card">
                 <img src="../resources/images/image3.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Kōdaiji Temple, <span class="bold">Kyoto</span><span class="price">$633</span></h5>
@@ -114,7 +113,7 @@
         </div>
         <div class="card-group">
 
-            <div class="card mb-3 home_card">
+            <div class="card mb-3 ">
                 <img src="../resources/images/image4.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Tsavo East National Park, <span class="bold">Kenya</span><span class="price">$1,248</span></h5>
@@ -130,9 +129,9 @@
     </div>
 
 
-    <div class="home_places">
+    <div class="places">
         <div class="card-group">
-            <div class="card home_card">
+            <div class="card ">
                 <img src="../resources/images/image5.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Stay among the atolls in <span class="bold">Maldives</span></span>
@@ -143,7 +142,7 @@
                         the early ages.</p>
                 </div>
             </div>
-            <div class="card home_card">
+            <div class="card ">
                 <img src="../resources/images/image6.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Experience the Ourika Valley in <span class="bold">Morocco</span>
@@ -153,7 +152,7 @@
                         in the Middle East.</p>
                 </div>
             </div>
-            <div class="card home_card">
+            <div class="card ">
                 <img src="../resources/images/image7.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Live traditionally in <span class="bold">Mongolia</span></h5>
@@ -163,7 +162,7 @@
             </div>
         </div>
         <div class="card-group" id="hide" style="display:none ;">
-            <div class="card home_card">
+            <div class="card ">
                 <img src="../resources/images/image5.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Stay among the atolls in <span class="bold">Maldives</span></span>
@@ -174,7 +173,7 @@
                         the early ages.</p>
                 </div>
             </div>
-            <div class="card home_card">
+            <div class="card ">
                 <img src="../resources/images/image6.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Experience the Ourika Valley in <span class="bold">Morocco</span>
@@ -184,7 +183,7 @@
                         in the Middle East.</p>
                 </div>
             </div>
-            <div class="card home_card">
+            <div class="card ">
                 <img src="../resources/images/image7.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Live traditionally in <span class="bold">Mongolia</span></h5>
@@ -216,6 +215,7 @@
     <script src="../resources/js/homepage.js"></script>
 
 </body>
+
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>

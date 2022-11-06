@@ -30,5 +30,9 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-
+    'google' => [
+        'client_id' => '579334753694-ea6fgmcoh5lfdepphilki58cg3qsgdaf.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' => 'http://localhost/flyhigh/public/google/callback',
+    ],
 ];

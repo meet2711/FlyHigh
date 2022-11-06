@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewController;
 use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\GoogleController;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +19,9 @@ use App\Http\Controllers\FlightController;
 |
 */
 
+
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,10 +30,17 @@ Route::get('/', function () {
 
 Route::view('/home', 'homepage');
 Route::view('/signup', 'signup');
-Route::view('/availableflights', 'availableflights');
+Route::view('/availableflights', 'availableflights_new');
 Route::view('/form','form');
 Route::view('/availableparttwo', 'availableparttwo');
 Route::post('/auth', [SignUpController::class, 'insert']);
+Route::get('/logout', [SignUpController::class, 'logout'])->name('logout');
 Route::post('/flights', [FlightController::class, 'search_flight']);
+Route::post('/select_flight', [FlightController::class, 'select_flight']);
 
 Route::view('/new','new');
+
+Route::get('google', [GoogleController::class, 'loginWithGoogle'])->name('google');
+Route::get('google/callback', [GoogleController::class, 'callbackFromGoogle']);
+
+

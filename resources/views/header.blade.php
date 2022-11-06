@@ -17,9 +17,32 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Packages</a>
                     </li>
+
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="signup" style="background-color: #1DB4FF; color:white;border-radius: 5px; ">Sign up</a>
+                    </li> -->
+                    @guest
                     <li class="nav-item">
                         <a class="nav-link" href="signup" style="background-color: #1DB4FF; color:white;border-radius: 5px; ">Sign up</a>
                     </li>
+                    @if (substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1) == 'register')
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup" style="background-color: #1DB4FF; color:white;border-radius: 5px; ">Sign up</a>
+                    </li>
+                    @endif
+                    @else
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"><img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" style=" border-radius: 5px; width: 20px; height: auto; margin-right: 7px;"></a>
+
+                        <!-- <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                            {{ Auth::user()->name }}
+                        </a> -->
+
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                        </ul>
+                    </li>
+                    @endguest
                 </ul>
             </div>
         </div>

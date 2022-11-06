@@ -18,7 +18,10 @@ var baseurl = "http://localhost/flyhigh/public/";
 
 $("#signup").validate({
     rules: {
-        username: {
+        name: {
+            required: true,
+        },
+        email: {
             required: true,
         },
         password: {
@@ -26,8 +29,11 @@ $("#signup").validate({
         },
     },
     messages: {
+        name: {
+            required: "Please enter your name",
+        },
         email: {
-            required: "Please enter username",
+            required: "Please enter email",
         },
         password: {
             required: "Please enter password",
@@ -48,9 +54,10 @@ $("#signup").validate({
                 // console.log(response);
                 if (response == 1) {
                     toastr.success("Login Successfull");
+                    window.location.href = baseurl + 'home';
                     $('#signup')[0].reset();
                 } else {
-                    toastr.error("Email, password or pin not correct.");
+                    toastr.error("Some error occured, please try again.");
                 }
             },
         });

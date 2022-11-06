@@ -3,6 +3,8 @@
 
 
 <head>
+    <!-- CSRF TOKEN -->
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -75,7 +77,65 @@
         </div>
 
     </div>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Air India</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">
 
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Flight ID</td>
+                                <td id="f_id"></td>
+                            </tr>
+                            <tr>
+                                <td>Arrival</td>
+                                <td id="f_arr"></td>
+                            </tr>
+                            <tr>
+                                <td>Destination</td>
+                                <td id="f_des"></td>
+                            </tr>
+                            <tr>
+                                <td>Arrival Time</td>
+                                <td id="f_arr_time"></td>
+                            </tr>
+                            <tr>
+                                <td>Destination Time</td>
+                                <td id="f_des_time"></td>
+                            </tr>
+                            <tr>
+                                <td>Halts</td>
+                                <td id="f_halts"></td>
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td id="f_price"></td>
+                            </tr>
+                            <tr>
+                                <td>Taxes</td>
+                                <td>$4</td>
+                            </tr>
+                            <tr>
+                                <td>Total Price</td>
+                                <td id="f_total">$</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Book Now!</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -89,24 +149,35 @@
                 <thead>
                     <tr>
                         <th>AirLines</th>
-                        <th>Departure</th>
                         <th>Arrival</th>
+                        <th>Arrival Date</th>
+                        <th>Departure</th>
+                        <th>Departure Date</th>
                         <th>Halts</th>
                         <th>Price</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach(Session::get('flight') as $f)
-                    <tr>
-                        <td><img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">Air India</td>
-                        
-                        <td>{{ $f->dep_time}}</td>
-                        <td>{{ $f->arr_time}}</td>
-                        <td>{{ $f->halts}}</td>
-                        <td>${{ $f->price}}</td>
-                    </tr>
+                    <a>
+                        <tr flight_id="{{ $f->id}}">
+                            <td><img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">Air India</td>
+
+                            <td>{{ $f->arr_time}}</td>
+                            <td>{{ $f->arr_date}}</td>
+                            <td>{{ $f->dep_time}}</td>
+                            <td>{{ $f->dep_date}}</td>
+                            <td>{{ $f->halts}}</td>
+                            <td>${{ $f->price}}</td>
+                            <td><button type="button" class="btn btn-primary select_flight" data-toggle="modal" data-target="#exampleModalCenter">
+                                    Select Flight
+                                </button>
+                            </td>
+                        </tr>
+                    </a>
                     @endforeach
-                    
+
                 </tbody>
             </table>
 
@@ -176,7 +247,34 @@ border-radius: 10px;">
         </div>
 
     </div>
+    <div class="selectedflightdetails" style="margin-top: 5.5em;">
 
+        <table id="flighttable" class="display">
+            <thead>
+                <tr>
+                    <th>AirLines</th>
+                    <th>Arrival</th>
+                    <th>Departure</th>
+                    <th>Halts</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(Session::get('returnf') as $f)
+                <tr>
+                    <td><img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">Air India</td>
+
+                    <td>{{ $f->arr_time}}</td>
+                    <td>{{ $f->dep_time}}</td>
+                    <td>{{ $f->halts}}</td>
+                    <td>${{ $f->price}}</td>
+                </tr>
+                @endforeach
+
+            </tbody>
+        </table>
+
+    </div>
 
     <div class="places">
         <div style="margin-top: 2em;">
@@ -264,13 +362,14 @@ border-radius: 10px;">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-
     <script src="../resources/js/virtual-select.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#flighttable').DataTable();
         });
     </script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="../resources/js/main.js"></script>
 
     <script>
         VirtualSelect.init({
@@ -295,5 +394,3 @@ border-radius: 10px;">
         }
     </script>
 </body>
-
-</html>

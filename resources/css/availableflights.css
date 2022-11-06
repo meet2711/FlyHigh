@@ -1,83 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 
-.dropdown {
-    display: flex;
-    flex-direction: column;
-    left: 300px;
-    margin-top: 100px;
-    justify-content: space-between;
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap');
+* {
+    font-family: 'Nunito Sans';
 }
-
-.dropbtn {
-    background-color: white;
-    color: black;
-    font-family: 'Roboto', sans-serif;
-    padding: 16px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 2px;
-    margin-right: 20px;
-    font-size: small;
-}
-
-#myInput {
-    box-sizing: border-box;
-    background-image: url('searchicon.png');
-    background-position: 14px 12px;
-    background-repeat: no-repeat;
-    font-size: 16px;
-    padding: 14px 20px 12px 45px;
-    border: none;
-    border-bottom: 1px solid #ddd;
-}
-
-#myInput:focus {
-    outline: 3px solid #ddd;
-}
-
-.searchfilter {
-    margin-top: 40px;
-    padding-top: 60px;
-    margin-left: 240px;
-}
-
-#multipleselect {
-    width: 180px;
-}
-
-
-
 
 .selectedflightdetails {
     margin-top: 5em;
     margin-left: 5em;
     margin-right: 10em;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 10px;
     padding: 10px;
-}
-
-.pricegridtable {
-    border-collapse: separate;
-    border-style: inset;
-    border-color: aqua;
-}
-
- 
+} 
 
 .selectedflightdetails table th,
 td {
-    border-bottom: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+    /* border-bottom: 1px solid #ddd; */
+    /* border-right: 1px solid #ddd; */
     padding: 6px;
 }
 
 .containspriceandtable {
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.width-maker{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100% !important;
+
 }
 
 .places .card {
@@ -95,6 +55,22 @@ td {
     width: 110%;
 }
 
+.display th{
+    background-color: #93d1f0;
+    width: 120px;
+    font-size: 16px;
+    font-family: 'Noto Serif', serif;
+    text-align: center;
+}
+
+.display td,tbody{
+    /* background-color: #dcf1fa; */
+    text-align: center;
+    background-color: rgb(255, 255, 255) !important;
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+}
+
 .places .card img {
     border-radius: 10px;
     height: 240px;
@@ -104,43 +80,38 @@ td {
     margin-top: 100px;
 }
 
-.form_icon{
-    padding-top: 6px;
-    /* margin-right: 7px; */
-}
-
-#travelinfo{
-    margin-left: 100px;
+#layer1 {
     position: relative;
     z-index: 1;
     background-color: white;
-    height: 67px;
-    width: 1200px;
-    top: -50px;
+    height: 97px;
+    width: 80%;
+    top: 45px;
     justify-content: center;
     align-items: center;
-
+    left: 130px;
 
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 21px;
 }
-
-
 .form input[type="date"]::before{
     content: attr(placeholder);
 }
 .form input{
-    width: 150px;
+    width: 50px;
     /* border: 1px; */
 }
 
-.mybutton{
+.form_icon{
+    padding-top: 6px;
+}
+
+.home_search_button{
     border: none;
     color: white;   
     background-color: #1DB4FF;
     height: 30px;
     width: 75px;
-    border-radius: 16px;
-
+    border-radius: 6px;
 }

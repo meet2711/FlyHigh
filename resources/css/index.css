@@ -95,12 +95,28 @@ input::-webkit-inner-spin-button {
 .home_reviews p {
     padding: 2px;
 }
-.home_card {
+/* .home_card {
     padding: 10px;
     border: 0;
 }
 .home_places .card img {
     border-radius: 20px;
+} */
+
+.places .card {
+    margin-left: 20px;
+    border: #ddd;
+    box-shadow: 2px 2px 3px 2px grey;
+    margin-right: 50px;
+    margin-top: 1em;
+    padding: 10px;
+    margin-bottom: 5em;
+    /* border: 0; */
+}
+
+.places .card img {
+    border-radius: 10px;
+    height: 240px;
 }
 
 .bold {

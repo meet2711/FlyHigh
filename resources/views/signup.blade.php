@@ -43,6 +43,7 @@
                     <h2>Welcome!</h2>
                     <p>Already have an Account?</p>
                     <a href="" class="btn">Sign In</a>
+                    <a href="{{route('google')}}" class="btn">Google</a>
                 </div>
             </div>
 
@@ -52,8 +53,12 @@
                     <form id="signup">
                         @csrf
                         <p>
-                            <label>Username/Email address<span>*</span></label>
-                            <input type="text" name="username" placeholder="Username or Email" autocomplete="off">
+                            <label>Name<span>*</span></label>
+                            <input type="text" name="name" placeholder="Full Name" autocomplete="off">
+                        </p>
+                        <p>
+                            <label>Email address<span>*</span></label>
+                            <input type="email" name="email" placeholder="Email" autocomplete="off">
                         </p>
                         <p>
                             <label>Set Password<span>*</span></label>
@@ -62,9 +67,6 @@
                         <p>
                             <input type="submit" value="Sign Up" id="log_btn">
                         </p>
-                        <a href="{{ route('google.login') }}" class="btn btn-google btn-user btn-block">
-                            <i class="fab fa-google fa-fw"></i> Login with Google
-                        </a>
                     </form>
                 </div>
             </div>
