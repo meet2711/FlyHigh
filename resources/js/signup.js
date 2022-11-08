@@ -54,10 +54,58 @@ $("#signup").validate({
                 // console.log(response);
                 if (response == 1) {
                     toastr.success("Login Successfull");
-                    window.location.href = baseurl + 'home';
                     $('#signup')[0].reset();
+                    window.location.href = baseurl + 'home';
                 } else {
                     toastr.error("Some error occured, please try again.");
+                }
+            },
+        });
+    },
+});
+
+$("#signin").validate({
+    rules: {
+
+        email: {
+            required: true,
+        },
+        password: {
+            required: true,
+        },
+    },
+    messages: {
+
+        email: {
+            required: "Please enter email",
+        },
+        password: {
+            required: "Please enter password",
+        },
+    },
+    submitHandler: function (form) {
+        // console.log('test');
+        var formData = new FormData(form);
+
+        $.ajax({
+            url: baseurl + "login",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+
+            success: function (response) {
+                // console.log(response);
+                if (response == 0) {
+                    toastr.success("Login Successfull");
+                    $('#signin')[0].reset();
+                    window.location.href = baseurl + 'home';
+                }
+                else if (response == 1) {
+                    toastr.error("Password incorrect, please try again.");
+                }
+                else {
+                    toastr.error("No such user found, please sign up first!");
                 }
             },
         });

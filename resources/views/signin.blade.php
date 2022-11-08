@@ -41,31 +41,27 @@
             <div class="col-left">
                 <div class="login-text">
                     <h2>Welcome!</h2>
-                    <p>Already have an Account?</p>
-                    <a href="signin" class="btn">Sign In</a>
+                    <p>New to FlyHigh?</p>
+                    <a href="" class="btn">Sign Up</a>
                     <a href="{{route('google')}}" class="btn">Google</a>
                 </div>
             </div>
 
             <div class="col-right">
                 <div class="login-form">
-                    <h2>Create Account</h2>
-                    <form id="signup">
+                    <h2>Log In</h2>
+                    <form id="signin">
                         @csrf
                         <p>
-                            <label>Name<span>*</span></label>
-                            <input type="text" name="name" placeholder="Full Name" autocomplete="off">
-                        </p>
-                        <p>
-                            <label>Email address<span>*</span></label>
+                            <label>Email address</label>
                             <input type="email" name="email" placeholder="Email" autocomplete="off">
                         </p>
                         <p>
-                            <label>Set Password<span>*</span></label>
+                            <label>Enter Password</label>
                             <input type="password" name="password" placeholder="Password" autocomplete="off">
                         </p>
                         <p>
-                            <input type="submit" value="Sign Up" id="log_btn">
+                            <input type="submit" value="Sign In" id="log_btn">
                         </p>
                     </form>
                 </div>

@@ -30,10 +30,12 @@ Route::get('/', function () {
 
 Route::view('/home', 'homepage');
 Route::view('/signup', 'signup');
+Route::view('/signin', 'signin');
 Route::view('/availableflights', 'availableflights_new');
 Route::view('/form','form');
 Route::view('/availableparttwo', 'availableparttwo');
 Route::post('/auth', [SignUpController::class, 'insert']);
+Route::post('/login', [SignUpController::class, 'login']);
 Route::get('/logout', [SignUpController::class, 'logout'])->name('logout');
 Route::post('/flights', [FlightController::class, 'search_flight']);
 Route::post('/select_flight', [FlightController::class, 'select_flight']);

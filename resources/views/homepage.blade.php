@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
 <head>
+    <!-- CSRF TOKEN -->
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,40 +44,42 @@
             </select>
             <div style="--bs-gutter-y: -1rem;--bs-gutter-x: 0rem;margin-left: 1rem;margin-top: 16px;margin-right: 1rem;">
 
-                <form style="display: flex; justify-content:space-between " action="flights" method="POST">
+                <form style="display: flex; justify-content:space-between " method="POST" action="flights">
                     @csrf
                     <div>
                         <label class="visually-hidden" for="inlineFormInputGroupUsername">From</label>
                         <div style="display: flex;">
                             <i class="fa fa-plane-departure form_icon"></i>
-                            <input type="text" name="arrival" class="form-input" placeholder="From where?">
+                            <input type="text" name="arrival" class="form-input" placeholder="From where?" required>
                         </div>
                     </div>
                     <div>
                         <div style="display: flex;">
                             <i class="fa-solid fa-plane-arrival form_icon"></i>
-                            <input type="text" name="departure" class="form-input" placeholder="Where to?">
+                            <input type="text" id="abc" name="departure" class="form-input" placeholder="Where to?" required>
                         </div>
                     </div>
                     <div>
                         <div>
-                            <input type="date" class="form-input" id="datefield" name="arrival_date" placeholder="Departure: &nbsp">
+                            <input type="text" class="form-input" id="datefield" name="arrival_date" placeholder="Departure: &nbsp" onfocus="(this.type='date')" onblur="(this.type='text')" required>
                         </div>
                     </div>
                     <div>
                         <div id="optional-field">
-                            <input type="date" class="form-input" id="datefield" name="departure_date" placeholder="Return: &nbsp">
+                            <input type="text" class="form-input" id="datefield1" name="departure_date" placeholder="Return: &nbsp" onfocus="(this.type='date')" onblur="(this.type='text')">
                         </div>
                     </div>
                     <div>
                         <div style="display: flex;">
                             <i class="fa fa-minus form_icon" aria-hidden="true" onclick="passengerSub()" style="padding-right: 5px;"></i>
-                            <input type="number" id="pnum" class="form-input" name="adults" placeholder="No of Adults">
+                            <input type="number" id="pnum" class="form-input" name="adults" placeholder="No of Adults" required>
                             <i class="fa fa-plus form_icon" aria-hidden="true" onclick="passengerAdd()" style="padding-left: 5px;"></i>
                         </div>
                     </div>
                     <div>
-                        <a href="public/flights"><button type="submit" class="home_search_button">Search</button></a>
+                        <!-- <a href="public/flights"> -->
+                        <button type="submit" class="home_search_button">Search</button>
+                        <!-- </a> -->
                     </div>
                 </form>
             </div>
@@ -204,7 +208,7 @@
     <!-- Footer -->
     @include('footer')
     <!--Date field JS-->
-    <script src="../resources/js/date.js"></script>
+    <!-- <script src="../resources/js/date.js"></script> -->
     <!-- Review Js-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -212,13 +216,13 @@
     <script src="../resources/js/review.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <script src="../resources/js/homepage.js"></script>
 
 </body>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+<script src="../resources/js/homepage.js"></script>
 <!-- <script src="../resources/js/main.js"></script> -->
 
 </html>

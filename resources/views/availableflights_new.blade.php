@@ -45,26 +45,28 @@
                     <div>
                         <div style="display: flex;">
                             <i class="fa fa-plane-departure form_icon"></i>
-                            <input type="text" class="form-input" placeholder="{{Session::get('flight')[0]->arr}}" style="width:150px">
+                            <input type="text" class="form-input" name="arrival" class="form-input" value="{{Session::get('flight')[0]->arr}}" style="width:150px">
 
                         </div>
                     </div>
                     <div>
                         <div style="display: flex;">
                             <i class="fa-solid fa-plane-arrival form_icon"></i>
-                            <input type="text" class="form-input" placeholder="{{Session::get('flight')[0]->dep}}" style="width:150px">
+                            <input type="text" class="form-input" name="departure" class="form-input" value="{{Session::get('flight')[0]->dep}}" style="width:150px">
                         </div>
                     </div>
                     <div>
                         <div>
-                            <input type="date" id="datefield" class="form-input" style="width:150px;" value="{{Session::get('arr_date')}}">
+                            <input type="date" id="datefield" class="form-input" name="arrival_date" style="width:150px;" value="{{Session::get('arr_date')}}">
                         </div>
                     </div>
+                    @if(Session::get('returnf') != null)
                     <div>
                         <div id="optional-field">
-                            <input type="date" class="form-input" id="datefield" style="width:150px;" value="{{Session::get('ret_date')}}">
+                            <input type="date" class="form-input" name="departure_date" id="datefield" style="width:150px;" value="{{Session::get('ret_date')}}">
                         </div>
                     </div>
+                    @endif
                     <div>
                         <div style="display: flex;">
                             <i class="fa fa-minus form_icon" aria-hidden="true" onclick="passengerSub()" style="padding-right: 5px;"></i>
@@ -73,7 +75,9 @@
                         </div>
                     </div>
                     <div>
-                        <a href="public/flights"><button type="submit" class="home_search_button">Search</button></a>
+                        <!-- <a href="public/flights"> -->
+                            <button type="submit" class="home_search_button">Search</button>
+                        <!-- </a> -->
                     </div>
                 </form>
             </div>
@@ -177,7 +181,7 @@
 
     </div>
 
-
+    @if(Session::get('returnf') != null)
     <div class="selectedflightdetails" style="margin-top: 5.5em;">
 
         <table id="flighttable2" class="display" style="border:1px solid #1DB4FF;">
@@ -209,6 +213,7 @@
             </tbody>
         </table>
     </div>
+    @endif
     <div class=" places">
         <div style="margin-top: 2em;">
             <p style="margin-left: 20px;">Find places to stay in Bangalore</p>
