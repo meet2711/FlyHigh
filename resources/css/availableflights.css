@@ -10,10 +10,7 @@
 }
 
 .selectedflightdetails {
-    margin-top: 5em;
-    margin-left: 5em;
-    margin-right: 10em;
-    /* border: 1px solid black; */
+    margin: 5em;
     border-radius: 10px;
     padding: 10px;
 } 
@@ -115,3 +112,9 @@ td {
     width: 75px;
     border-radius: 6px;
 }
+.book-btn{
+    align-items: center;
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+  } 

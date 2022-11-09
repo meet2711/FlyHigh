@@ -49,3 +49,14 @@ $(document).on('click', '.select_flight', function () {
         }
     });
 });
+
+function bookflight() {
+    var checked = document.querySelectorAll("input[type=radio]:checked");
+    console.log(checked);
+    for (let i = 0; i < checked.length; i++) {
+        console.log(checked[i].value);
+    }
+    if(checked.length <2){
+        toastr.error("Please select the flights first");
+    }   
+}

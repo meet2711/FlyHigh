@@ -30,6 +30,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'>
 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
     <title>Fly High</title>
 </head>
@@ -76,7 +79,7 @@
                     </div>
                     <div>
                         <!-- <a href="public/flights"> -->
-                            <button type="submit" class="home_search_button">Search</button>
+                        <button type="submit" class="home_search_button">Search</button>
                         <!-- </a> -->
                     </div>
                 </form>
@@ -148,7 +151,7 @@
     <!--dropdown list ends with this div -->
 
     <!-- <div class="width-maker"> -->
-    <div class="selectedflightdetails" style="margin-top: 5.5em;">
+    <div class="selectedflightdetails">
 
         <table id="flighttable" class="display" style="border: 1px solid #1DB4FF;">
             <thead>
@@ -160,6 +163,7 @@
                     <th style="text-align: center;">Departure Date</th>
                     <th style="text-align: center;">Halts</th>
                     <th style="text-align: center;">Price</th>
+                    <th style="text-align: center;">Select Flight</th>
                     <th style="text-align: center;"></th>
                 </tr>
             </thead>
@@ -173,7 +177,8 @@
                     <td>{{ $f->dep_date}}</td>
                     <td>{{ $f->halts}}</td>
                     <td>${{ $f->price}}</td>
-                    <td><button type="button" class="btn select_flight" data-toggle="modal" data-target="#exampleModalCenter" style="border-radius: 5px; background-color:#93d1f0">Select Flight</button></td>
+                    <td><input type="radio" name="flight" value="{{ $f->id}}"></td>
+                    <td><button type="button" class="btn select_flight" data-toggle="modal" data-target="#exampleModalCenter" style="border-radius: 5px; background-color:#93d1f0">Flight Details</button></td>
                 </tr>
                 @endforeach
             </tbody>
@@ -194,6 +199,7 @@
                     <th style="text-align: center;">Arrival Date</th>
                     <th style="text-align: center;">Halts</th>
                     <th style="text-align: center;">Price</th>
+                    <th style="text-align: center;">Select Flight</th>
                     <th style="text-align: center;"></th>
                 </tr>
             </thead>
@@ -207,13 +213,17 @@
                     <td>{{ $f->arr_date}}</td>
                     <td>{{ $f->halts}}</td>
                     <td>${{ $f->price}}</td>
-                    <td><button type="button" class="btn select_flight" data-toggle="modal" data-target="#exampleModalCenter" style="border-radius: 5px; background-color:#93d1f0">Select Flight</button></td>
+                    <td><input type="radio" name="returnflight" value="{{ $f->id}}"></td>
+                    <td><button type="button" class="btn select_flight" data-toggle="modal" data-target="#exampleModalCenter" style="border-radius: 5px; background-color:#93d1f0">Flight Details</button></td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
     @endif
+    <div class="book-btn">
+        <button type="button" class="btn btn-primary" onclick="bookflight()">Book Now!</button>
+    </div>
     <div class=" places">
         <div style="margin-top: 2em;">
             <p style="margin-left: 20px;">Find places to stay in Bangalore</p>
@@ -299,6 +309,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
     <script src="../resources/js/virtual-select.min.js"></script>
     <script src="../resources/js/main.js"></script>
