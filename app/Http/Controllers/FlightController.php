@@ -37,4 +37,10 @@ class FlightController extends Controller
         $flight =  DB::table('flight_info')->where('id', (int)$req->f_id)->get();
         return $flight;
     }
+    public function selected_flight($f_id, $rf_id, $adults)
+    {
+        $flight =  DB::table('flight_info')->where('id', (int)$f_id)->get();
+        $rflight =  DB::table('flight_info')->where('id', (int)$rf_id)->get();
+        return redirect('form')->with(array("flight" => $flight, "returnf" => $rflight, "adults" => $adults));
+    }
 }

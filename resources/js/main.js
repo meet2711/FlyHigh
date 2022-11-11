@@ -50,13 +50,30 @@ $(document).on('click', '.select_flight', function () {
     });
 });
 
-function bookflight() {
+$(document).on('click', '.book', function () {
     var checked = document.querySelectorAll("input[type=radio]:checked");
-    console.log(checked);
-    for (let i = 0; i < checked.length; i++) {
-        console.log(checked[i].value);
-    }
-    if(checked.length <2){
+    // console.log($('#pnum').val());
+    // for (let i = 0; i < checked.length; i++) {
+    //     console.log(checked[i].value);
+    // }
+    if (checked.length < 2) {
         toastr.error("Please select the flights first");
-    }   
-}
+    }
+    else {
+        var f_id = checked[0].value;
+        var rf_id = checked[1].value;
+        var adults = $('#pnum').val();
+        window.location.href = baseurl + "form/" + f_id + "/" + rf_id + "/" + adults;
+        // $.ajax({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     },
+        //     method: 'POST',
+        //     url: baseurl + 'selected_flight_for_form',
+        //     data: {
+        //         'f_id': f_id,
+        //         'rf_id': rf_id,
+        //     },
+        // });
+    }
+});

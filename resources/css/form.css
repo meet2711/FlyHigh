@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=Roboto&display=swap');
-body{
-    font-family: 'Nunito Sans', sans-serif;
-    font-family: 'Roboto', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap');
+
+* {
+    font-family: 'Nunito Sans';
 }
+
+
 input {
     color: var(--dl-color-gray-black);
     cursor: auto;
@@ -12,37 +21,67 @@ input {
     border-radius: 4px;
     background-color: var(--dl-color-gray-white);
 }
-.middle1{
+
+.middle1 {
     padding-left: 30px;
 }
-td{
+
+td {
     padding-bottom: 25px;
 }
-label{
-  top: 41px;
-  left: 481px;
-  color: grey;
-  width: 687px;
+
+label {
+    top: 41px;
+    left: 481px;
+    color: grey;
+    width: 687px;
 }
-.form-div{
+
+.form-div {
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 5rem;
 }
-.tcheck{
+
+.tcheck {
     padding-right: 6rem;
 }
-.table2{
+
+.table2 {
     column-width: 100px;
 }
-.imgdiv{
+
+.imgdiv {
     padding-left: 20rem;
 }
-.qty{
+
+.qty {
     text-align: center;
     width: 2rem;
 }
-.qtylabel{
+
+.qtylabel {
     text-align: center;
     width: 3rem;
+}
+
+.selectedflightdetails {
+    margin: 5em;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.selectedflightdetails table th,
+td {
+    /* border-bottom: 1px solid #ddd; */
+    /* border-right: 1px solid #ddd; */
+    padding: 6px;
+}
+
+.display th{
+    background-color: #93d1f0;
+    width: 120px;
+    font-size: 16px;
+    font-family: 'Noto Serif', serif;
+    text-align: center;
 }

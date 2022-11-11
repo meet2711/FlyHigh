@@ -172,9 +172,9 @@
                 <tr flight_id="{{ $f->id}}">
                     <td><img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">Air India</td>
                     <td>{{ $f->arr_time}}</td>
-                    <td>{{ $f->arr_date}}</td>
+                    <td>{{ date_format(date_create($f->arr_date), "d/m/Y")}}</td>
                     <td>{{ $f->dep_time}}</td>
-                    <td>{{ $f->dep_date}}</td>
+                    <td>{{ date_format(date_create($f->dep_date), "d/m/Y")}}</td>
                     <td>{{ $f->halts}}</td>
                     <td>${{ $f->price}}</td>
                     <td><input type="radio" name="flight" value="{{ $f->id}}"></td>
@@ -208,9 +208,9 @@
                 <tr flight_id="{{ $f->id}}">
                     <td><img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">Air India</td>
                     <td>{{ $f->dep_time}}</td>
-                    <td>{{ $f->dep_date}}</td>
+                    <td>{{ date_format(date_create($f->dep_date), "d/m/Y")}}</td>
                     <td>{{ $f->arr_time}}</td>
-                    <td>{{ $f->arr_date}}</td>
+                    <td>{{ date_format(date_create($f->arr_date), "d/m/Y")}}</td>
                     <td>{{ $f->halts}}</td>
                     <td>${{ $f->price}}</td>
                     <td><input type="radio" name="returnflight" value="{{ $f->id}}"></td>
@@ -222,7 +222,7 @@
     </div>
     @endif
     <div class="book-btn">
-        <button type="button" class="btn btn-primary" onclick="bookflight()">Book Now!</button>
+        <button type="button" class="btn btn-primary book">Book Now!</button>
     </div>
     <div class=" places">
         <div style="margin-top: 2em;">

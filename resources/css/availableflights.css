@@ -5,15 +5,26 @@
 @import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap');
+
 * {
     font-family: 'Nunito Sans';
 }
+
+/* input {
+    color: var(--dl-color-gray-black);
+    cursor: auto;
+    padding: 0.5rem 1rem;
+    border-color: var(--dl-color-gray-black);
+    border-width: 1px;
+    border-radius: 4px;
+    background-color: var(--dl-color-gray-white);
+} */
 
 .selectedflightdetails {
     margin: 5em;
     border-radius: 10px;
     padding: 10px;
-} 
+}
 
 .selectedflightdetails table th,
 td {
@@ -28,7 +39,7 @@ td {
     justify-content: center;
 }
 
-.width-maker{
+.width-maker {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,7 +63,7 @@ td {
     width: 110%;
 }
 
-.display th{
+.display th {
     background-color: #93d1f0;
     width: 120px;
     font-size: 16px;
@@ -60,7 +71,8 @@ td {
     text-align: center;
 }
 
-.display td,tbody{
+.display td,
+tbody {
     /* background-color: #dcf1fa; */
     text-align: center;
     background-color: rgb(255, 255, 255) !important;
@@ -73,7 +85,7 @@ td {
     height: 240px;
 }
 
-.flightinfo{
+.flightinfo {
     margin-top: 100px;
 }
 
@@ -92,29 +104,32 @@ td {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 21px;
 }
-.form input[type="date"]::before{
+
+.form input[type="date"]::before {
     content: attr(placeholder);
 }
-.form input{
+
+.form input {
     width: 50px;
     /* border: 1px; */
 }
 
-.form_icon{
+.form_icon {
     padding-top: 6px;
 }
 
-.home_search_button{
+.home_search_button {
     border: none;
-    color: white;   
+    color: white;
     background-color: #1DB4FF;
     height: 30px;
     width: 75px;
     border-radius: 6px;
 }
-.book-btn{
+
+.book-btn {
     align-items: center;
-        display: flex;
-        justify-content: center;
-        padding: 10px;
-  } 
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
