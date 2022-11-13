@@ -13,11 +13,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- Data table css-->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-
-    <!-- Dropdown bootstrap css -->
-    <link rel="stylesheet" href="../resources/css/virtual-select.min.css">
 
     <!-- Custom Css -->
     <link rel="stylesheet" href="../resources/css/form.css">
@@ -40,9 +35,12 @@
 <body>
     @include('header')
 
+    <div>
+        <h1>Selected Flight</h1>
+    </div>
     <div class="selectedflightdetails">
 
-        <table id="flighttable" class="display" style="border: 1px solid #1DB4FF;">
+        <table>
             <thead>
                 <tr>
                     <th style="text-align: center;">AirLines</th>
@@ -55,33 +53,85 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach(Session::get('flight') as $f)
-                <tr flight_id="{{ $f->id}}">
-                    <td><img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">Air India</td>
-                    <td>{{ $f->arr_time}}</td>
-                    <td>{{ date_format(date_create($f->arr_date), "d/m/Y")}}</td>
-                    <td>{{ $f->dep_time}}</td>
-                    <td>{{ date_format(date_create($f->dep_date), "d/m/Y")}}</td>
-                    <td>{{ $f->halts}}</td>
-                    <td>${{ $f->price}}</td>
+                <tr>
+                    <td><img src="../resources/images/Air-India-logo.png" alt="" width="35px" height="35px">Air India</td>
+                    <td>12:00</td>
+                    <td>22/12/22</td>
+                    <td>15:00</td>
+                    <td>24/12/22</td>
+                    <td>0</td>
+                    <td>$100</td>
                 </tr>
-                @endforeach
-                @foreach(Session::get('returnf') as $f)
-                <tr flight_id="{{ $f->id}}">
-                    <td><img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">Air India</td>
-                    <td>{{ $f->dep_time}}</td>
-                    <td>{{ date_format(date_create($f->dep_date), "d/m/Y")}}</td>
-                    <td>{{ $f->arr_time}}</td>
-                    <td>{{ date_format(date_create($f->arr_date), "d/m/Y")}}</td>
-                    <td>{{ $f->halts}}</td>
-                    <td>${{ $f->price}}</td>
+                <tr>
+                <td><img src="../resources/images/Air-India-logo.png" alt="" width="35px" height="35px">Air India</td>
+                <td>12:00</td>
+                <td>22/12/22</td>
+                <td>15:00</td>
+                <td>24/12/22</td>
+                <td>0</td>
+                <td>$100</td>
                 </tr>
-                @endforeach
             </tbody>
         </table>
 
     </div>
 
+    <form class="detailform">
+            <label style="font-weight: 100;">Passenger 1</label>
+            <div class="inputsection">
+                <input type="text" name="" placeholder="First name">
+                <input type="text" name="" placeholder="Middle">
+                <input type="text" name="" placeholder="Last name">
+            </div>
+            <div class="inputsection">
+                <input type="text" name="" placeholder="Suffix">
+                <input type="text" name="" placeholder="Date Of Birth">
+            </div>
+            <div class="inputsection">
+                <input type="text" name="" placeholder="Email address">
+                <input type="text" name="" placeholder="Phone number">
+            </div>
+            <div class="inputsection">
+                <input type="text" name="" placeholder="Distress number">
+                <input type="text" name="" placeholder="Known traveller number">
+            </div>
+
+            <label>Emergency contact information</label>
+            <div class="inputsection">
+                <input type="checkbox" name="" style="margin: 0;">
+                <label>Same as Pasenger 1</label>
+            </div>
+            <div class="inputsection">
+                <input type="text" name="" placeholder="First name">
+                <input type="text" name="" placeholder="Last name">
+            </div>
+            <div class="inputsection">
+                <input type="text" name="" placeholder="Email address">
+                <input type="text" name="" placeholder="Phone number">
+            </div>
+
+            <label>Bag information</label><br>
+            <span>Each passenger is allowed one free carry-on bag and one personal item.
+                 First checked bag for each passenger is also free.
+                 Second bag check fees are waived for loyalty program members. See the full bag policy.</span>
+                 <div class="baginfo">
+                 <label>Passenger 1</label>
+                    <label style="margin-right: 70px;">Checked bags</label>   
+                </div>
+                <div class="baginfo">
+                <label >Take name from form</label>
+                    <div class="incdec">
+                    <i class="fa fa-minus form_icon" aria-hidden="true" onclick="bagSub()" style="padding-right: 5px;"></i>
+                    <input type="number" id="pnum" class="form-input" name="adults" value="1" required>
+                    <i class="fa fa-plus form_icon" aria-hidden="true" onclick="bagAdd()" style="padding-left: 5px;"></i>
+                    </div>
+                 </div>
+            <div>
+
+            </div>
+
+            <button class="bookbutton">Book Flight</button>
+        </form>
     
     @include('footer')
     <!-- Optional JavaScript -->
@@ -107,14 +157,27 @@
 
     <script src="../resources/js/main.js"></script>
 
+
+
     <script>
-        $(document).ready(function() {
-            $('#flighttable').DataTable();
-        });
-        $(document).ready(function() {
-            $('#flighttable2').DataTable();
-        });
+    function bagAdd() {
+    var pdetails = document.getElementById('pnum');
+    var val = pnum.value;
+    if (val < 6)
+        val++;
+    pdetails.value = val;
+}
+
+function bagSub() {
+    var pdetails = document.getElementById('pnum');
+    var val = pnum.value;
+    if (val > 0)
+        val--;
+    pdetails.value = val;
+}
     </script>
+
+    
 
 </body>
 
