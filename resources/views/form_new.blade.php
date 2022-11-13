@@ -53,24 +53,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><img src="../resources/images/Air-India-logo.png" alt="" width="35px" height="35px">Air India</td>
-                    <td>12:00</td>
-                    <td>22/12/22</td>
-                    <td>15:00</td>
-                    <td>24/12/22</td>
-                    <td>0</td>
-                    <td>$100</td>
+            @foreach(Session::get('flight') as $f)
+                <tr flight_id="{{ $f->id}}">
+                    <td><img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">Air India</td>
+                    <td>{{ $f->arr_time}}</td>
+                    <td>{{ date_format(date_create($f->arr_date), "d/m/Y")}}</td>
+                    <td>{{ $f->dep_time}}</td>
+                    <td>{{ date_format(date_create($f->dep_date), "d/m/Y")}}</td>
+                    <td>{{ $f->halts}}</td>
+                    <td>${{ $f->price}}</td>
                 </tr>
-                <tr>
-                <td><img src="../resources/images/Air-India-logo.png" alt="" width="35px" height="35px">Air India</td>
-                <td>12:00</td>
-                <td>22/12/22</td>
-                <td>15:00</td>
-                <td>24/12/22</td>
-                <td>0</td>
-                <td>$100</td>
+                @endforeach
+                @foreach(Session::get('returnf') as $f)
+                <tr flight_id="{{ $f->id}}">
+                    <td><img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">Air India</td>
+                    <td>{{ $f->dep_time}}</td>
+                    <td>{{ date_format(date_create($f->dep_date), "d/m/Y")}}</td>
+                    <td>{{ $f->arr_time}}</td>
+                    <td>{{ date_format(date_create($f->arr_date), "d/m/Y")}}</td>
+                    <td>{{ $f->halts}}</td>
+                    <td>${{ $f->price}}</td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
 
