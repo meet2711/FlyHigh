@@ -17,7 +17,7 @@
                             </div>
                         </div>
                         <div class="slide-content">
-                            <p>very nice product</p>
+                            <p>FlyHigh is a really useful website for booking flights. I really liked the UI of the website and the user experience that it provides is unmatched</p>
                         </div>
                     </div>
                     <div class="testi-slide">

@@ -7,8 +7,13 @@ use Illuminate\Http\Request;
 
 class NewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('client.credentials')->only('home');
+    }
     public function home()
     {
+        // dd('hello');
         return DB::table('temp_flights')->select('id', 'arr', 'dep', 'arr_time', 'dep_time')->get();
     }
     public function add(Request $req)

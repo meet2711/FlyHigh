@@ -18,12 +18,9 @@ class GoogleController extends Controller
 
     public function callbackFromGoogle()
     {
-        // echo "hello";
         $user = Socialite::driver('google')->user();
-        // echo "bye";
         $this->reg($user);
         return redirect('/home');
-        // dd($user);
     }
 
     protected function reg($data)

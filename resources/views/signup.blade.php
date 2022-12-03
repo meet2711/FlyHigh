@@ -22,7 +22,7 @@
     <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
     <!-- Font awesome symbols -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <title>Fly High</title>
 </head>
 
@@ -42,7 +42,7 @@
                 <div class="login-text">
                     <h2>Welcome!</h2>
                     <p>Already have an Account?</p>
-                    <a href="signin" class="btn">Sign In</a>
+                    <a href="signin" class="btn">Sign In</a><br><br>
                     <a href="{{route('google')}}" class="btn">Google</a>
                 </div>
             </div>
@@ -84,5 +84,9 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script src="../resources/js/signup.js"></script>
-
+<script>
+    @if(Session::has('signin'))
+        toastr.error("{{ session('signin')}}")
+    @endif
+</script>
 </html>

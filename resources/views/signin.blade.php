@@ -42,7 +42,7 @@
                 <div class="login-text">
                     <h2>Welcome!</h2>
                     <p>New to FlyHigh?</p>
-                    <a href="" class="btn">Sign Up</a>
+                    <a href="signup" class="btn">Sign Up</a><br><br>
                     <a href="{{route('google')}}" class="btn">Google</a>
                 </div>
             </div>
@@ -53,11 +53,11 @@
                     <form id="signin">
                         @csrf
                         <p>
-                            <label>Email address</label>
+                            <label>Email address<span>*</span></label>
                             <input type="email" name="email" placeholder="Email" autocomplete="off">
                         </p>
                         <p>
-                            <label>Enter Password</label>
+                            <label>Enter Password<span>*</span></label>
                             <input type="password" name="password" placeholder="Password" autocomplete="off">
                         </p>
                         <p>

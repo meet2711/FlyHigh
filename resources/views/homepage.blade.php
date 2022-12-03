@@ -50,29 +50,35 @@
                         <label class="visually-hidden" for="inlineFormInputGroupUsername">From</label>
                         <div style="display: flex;">
                             <i class="fa fa-plane-departure form_icon"></i>
-                            <input type="text" name="arrival" class="form-input" placeholder="From where?" required>
+                            <div>
+                                <input type="text" name="arrival" class="form-input" placeholder="From where?" required>
+                            </div>
                         </div>
                     </div>
                     <div>
                         <div style="display: flex;">
                             <i class="fa-solid fa-plane-arrival form_icon"></i>
-                            <input type="text" id="abc" name="departure" class="form-input" placeholder="Where to?" required>
+                            <div>
+                                <input type="text" id="abc" name="departure" class="form-input" placeholder="Where to?" required>
+                            </div>
                         </div>
                     </div>
                     <div>
-                        <div>
-                            <input type="text" class="form-input" id="datefield" name="arrival_date" placeholder="Departure: &nbsp" onfocus="(this.type='date')" onblur="(this.type='text')" required>
-                        </div>
+                        <input type="text" class="form-input" id="datefield" name="arrival_date" placeholder="Departure: &nbsp" onfocus="(this.type='date')" onblur="(this.type='text')" required>
                     </div>
                     <div>
                         <div id="optional-field">
-                            <input type="text" class="form-input" id="datefield1" name="departure_date" placeholder="Return: &nbsp" onfocus="(this.type='date')" onblur="(this.type='text')">
+                            <div>
+                                <input type="text" class="form-input" id="datefield1" name="departure_date" placeholder="Return: &nbsp" onfocus="(this.type='date')" onblur="(this.type='text')">
+                            </div>
                         </div>
                     </div>
                     <div>
                         <div style="display: flex;">
-                            <i class="fa fa-minus form_icon" aria-hidden="true" onclick="passengerSub()" style="padding-right: 5px;"></i>
-                            <input type="number" id="pnum" class="form-input" name="adults" placeholder="No of Adults" required>
+                            <div>
+                                <i class="fa fa-minus form_icon" aria-hidden="true" onclick="passengerSub()" style="padding-right: 5px;"></i>
+                                <input type="number" id="pnum" class="form-input" name="adults" placeholder="No of Adults" required>
+                            </div>
                             <i class="fa fa-plus form_icon" aria-hidden="true" onclick="passengerAdd()" style="padding-left: 5px;"></i>
                         </div>
                     </div>

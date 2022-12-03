@@ -56,7 +56,7 @@ function showmore(){
 
 // $("#search").validate({
 //     submitHandler: function (form) {
-//         // console.log('test');
+//         console.log('test');
 //         var formData = new FormData(form);
 
 //         $.ajax({

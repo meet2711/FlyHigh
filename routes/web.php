@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\NewController;
 use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\TempController;
 use Illuminate\Support\Facades\Auth;
-
+use Laravel\Passport\Passport;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,29 +22,26 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Route::get('/home', [NewController::class, 'home']);
-
 Route::view('/home', 'homepage');
+
+Route::post('/flights', [FlightController::class, 'search_flight']);
+Route::view('/availableflights', 'availableflights_new');
+
+Route::post('/select_flight', [FlightController::class, 'select_flight']);
+Route::get('/form/{f_id}/{rf_id}/{adults}', [FlightController::class, 'selected_flight_return']);
+Route::get('/form/{f_id}/{adults}', [FlightController::class, 'selected_flight']);
+Route::view('/form','form');
+
+Route::post('/confirm',[FlightController::class, 'confirm']);
+Route::get('/bookings',[FlightController::class, 'show_bk']);
+Route::get('/confirmation_page',[FlightController::class, 'view_confirm']);
+Route::view('/confirmation', 'confirmation');
+// Route::get('/temp',[TempController::class, 'temp']);
+
 Route::view('/signup', 'signup');
 Route::view('/signin', 'signin');
-Route::view('/availableflights', 'availableflights_new');
-Route::view('/form','form_new');
-Route::view('/form2','form');
-Route::view('/availableparttwo', 'availableparttwo');
 Route::post('/auth', [SignUpController::class, 'insert']);
 Route::post('/login', [SignUpController::class, 'login']);
 Route::get('/logout', [SignUpController::class, 'logout'])->name('logout');
-Route::post('/flights', [FlightController::class, 'search_flight']);
-Route::post('/select_flight', [FlightController::class, 'select_flight']);
-Route::get('/form/{f_id}/{rf_id}/{adults}', [FlightController::class, 'selected_flight']);
-
-Route::view('/new','new');
-
 Route::get('google', [GoogleController::class, 'loginWithGoogle'])->name('google');
 Route::get('google/callback', [GoogleController::class, 'callbackFromGoogle']);
-
-

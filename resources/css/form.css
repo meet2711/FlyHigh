@@ -19,7 +19,6 @@
     font-family: 'Nunito Sans';
 }
 
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -42,7 +41,6 @@ input::-webkit-inner-spin-button {
 ::-webkit-scrollbar-corner {
     background: #000;
 }
-
 
 input {
     color: var(--dl-color-gray-black);
@@ -115,9 +113,9 @@ label{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-right: 40px;
+    margin-right: 110px;
     text-align: center;
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 .baginfo input{
@@ -136,4 +134,19 @@ label{
     width: 100px;
 }
 
+.formandimage{
+    display: flex;
+    flex-direction: row;
+}
 
+.containform{
+    margin-left: -100px;
+}
+
+.suitcaseimg img{
+    padding-top: 275px;
+}
+
+.inputsection .error{
+    color: #f80f0f;
+}

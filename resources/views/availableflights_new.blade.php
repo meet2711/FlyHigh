@@ -10,8 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
     <!-- Data table css-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
@@ -39,6 +38,36 @@
 
 <body>
     @include('header')
+    <div id="layer2">
+        <div>
+            <div style="--bs-gutter-y: -1rem;--bs-gutter-x: 0rem;">
+
+                <div style="display: flex;align-items:center;">
+                    <div style="width: 40%;display:flex;padding-left: 18px;">
+                        <div>
+                            <lottie-player src="https://assets1.lottiefiles.com/temp/lf20_dgjK9i.json" background="transparent" speed="1" style="width: 100px; height: 100px;" loop autoplay></lottie-player>
+                        </div>
+                        <div>
+                            <p style="font-size: xx-large;margin-top:26px">Here's the weather info of {{Session::get('dest')}} :</p>
+                        </div>
+                    </div>
+                    <div class="values">
+                        <div class="info" style="margin-right: 10rem;">
+                            <p>Temperature: <span>{{Session::get('temp') - 273.15}}ºC</span></p>
+                        </div>
+                        <div class="info" style="margin-right: 10rem;">
+                            <p>Humidity: <span>{{Session::get('humid')}}%</span></p>
+                        </div>
+                        <div class="info">
+                            <p>Condition: <span>{{Session::get('condition')}}</span></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
     <div id="layer1">
         <div>
             <div style="--bs-gutter-y: -1rem;--bs-gutter-x: 0rem;margin-left: 1rem;margin-top: 16px;margin-right: 1rem;">
@@ -98,7 +127,37 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">
+                    <div style="display: flex;align-items: centre; justify-content:center;">
+                        <img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">
+                    </div>
+
+
+                    <div style="display: flex; font-size:large;">
+                        <div style="width: 50%;">
+                            <p>Flight ID</p>
+                            <p>Arrival</p>
+                            <p>Destination</p>
+                            <p>Arrival Time</p>
+                            <p>Destination Time</p>
+                            <p>Halts</p>
+                            <p>Price</p>
+                            <p>Taxes</p>
+                            <p>Total Price</p>
+                        </div>
+                        <div style="width: 50%;display: flex;align-items: flex-end;flex-direction: column;">
+                            <p id="f_id"></p>
+                            <p id="f_arr"></p>
+                            <p id="f_des"></p>
+                            <p id="f_arr_time"></p>
+                            <p id="f_des_time"></p>
+                            <p id="f_halts"></p>
+                            <p id="f_price"></p>
+                            <p>4</p>
+                            <p id="f_total"></p>
+                        </div>
+                    </div>
+
+                    <!-- <img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">
 
                     <table>
                         <tbody>
@@ -139,16 +198,14 @@
                                 <td id="f_total">$</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Book Now!</button>
+                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Close</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <!--dropdown list ends with this div -->
 
     <!-- <div class="width-maker"> -->
     <div class="selectedflightdetails">
@@ -220,73 +277,65 @@
             </tbody>
         </table>
     </div>
+    <div class="book-btn">
+        <button type="button" class="btn btn-primary book_return">Book Now!</button>
+    </div>
     @endif
+    @if(Session::get('returnf') == null)
     <div class="book-btn">
         <button type="button" class="btn btn-primary book">Book Now!</button>
     </div>
+    @endif
     <div class=" places">
         <div style="margin-top: 2em;">
-            <p style="margin-left: 20px;">Find places to stay in Bangalore</p>
+            <p style="margin-left: 20px;">Find places to stay in {{Session::get('dest')}}</p>
         </div>
         <div class="card-group">
+
+            @foreach(Session::get('hotels') as $key => $value)
+            @if($loop->iteration > 3)
+            @break
+            @endif
             <div class="card ">
-                <img src="../resources/images/park,bangalore.jpg" class="card-img-top" alt="...">
+                <img src="https://{{Session::get('imgs')[$loop->iteration]}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">The Park, </span><span class="price"> $598</span></h5>
+                    <h5 class="card-title">{{$key}}
                     </h5>
-                    <p class="card-text">Located at Ulsoor, an uber-chic property in downtown, offering a host of
-                        leisure services,
-                        luxurious rooms and suites, and premium dining options.</p>
+                    <p class="card-text">{{$value}}</p>
                     <p class="card-text"><small class="text-muted"></small></p>
                 </div>
             </div>
-            <div class="card">
-                <img src="../resources/images/octave.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Octave Himalaya Monarch, </span><span class="price">$981</span></h5>
-                    <p class="card-text">Located in Gandhi Nagar,Bangalore with impeccable rooms, conference facilities
-                        and close proximity to transits and landmarks,
-                        Hotel Himalaya by Monarch ensures a pocket-friendly accommodation.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201306271508561947-bdd039ba1df811e8832b02755708f0b3.jpg?&output-quality=75&downsize=520:350&crop=520:350;81,0&output-format=jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">The Signature Inn, <span class="price">$633</span></h5>
-                    <p class="card-text">Experience a truly unique stay in an authentic hotel.
-                        Enjoy comfort & luxury at pocket friendly prices in Electronic City of India at Signature Inn.
-                    </p>
-                </div>
-            </div>
+
+            @endforeach
         </div>
     </div>
     <div>
-        <p style="margin-left: 20px;">Place to visit in Bangalore</p>
+        <p style="margin-left: 20px;">Place to visit in {{Session::get('dest')}}</p>
     </div>
     <div class="card-group places">
-        <div class="card ">
-            <img src="https://i.ytimg.com/vi/Ih3Qo0bmmC0/maxresdefault.jpg" class="card-img-top" alt="...">
+        <div class="card">
+            <img src="https://www.holidify.com/images/cmsuploads/compressed/5621259188_e74d63cb05_b_20180302140149.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Wonderla Amusement Park<span class="price">$598</span>
+                <h5 class="card-title">Morning Walk near India Gate
                 </h5>
                 </h5>
-                <p class="card-text">A fun place for all age groups in Bengaluru</p>
+                <p class="card-text">India Gate is a war memorial located in New Delhi, along the Rajpath. It is dedicated to the 82,000 soldiers, both Indian and British, who died during the First World War and the Third Anglo-Afghan War. India Gate looks stunning at night with the fountain displaying colourful lights. The surrounding lush green lawns are a popular picnic spot. The Amar Jawan Jyoti is also located here.</p>
                 <p class="card-text"><small class="text-muted"></small></p>
             </div>
         </div>
         <div class="card">
-            <img src="https://images-acme.mmtcdn.com/prod-acme-image/system/product_media/c/53514/media6B2GA8XSQ8G4A.jpg?imwidth=520&quality=70" class="card-img-top" alt="...">
+            <img src="https://www.holidify.com/images/cmsuploads/compressed/Qutub_Minar_in_the_monsoons_20170908115259.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Guhantara - The Underground Cave Resort <span class="price">$981</span>
+                <h5 class="card-title">Qutub Minar
                 </h5>
-                <p class="card-text">Dubbed the Safari Capital of the World</p>
+                <p class="card-text">Qutub Minar is a minaret or a victory tower located in the Qutub complex, a UNESCO World Heritage Site in Delhi's Mehrauli area. With a height of 72.5 metres (238 ft), Qutub Minar is the second tallest monument of Delhi. The surrounding Qutub complex has lush green lawns which are popular picnic spot.</p>
             </div>
         </div>
         <div class="card">
-            <img src="https://www.explorebees.com/uploads/kokrebellur%20bird%20sanctuary.jpg" class="card-img-top" alt="...">
+            <img src="https://www.holidify.com/images/cmsuploads/compressed/attr_wiki_4067_20191212124026.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Kokkare Bellur Bird Sanc.<span class="price">$633</span></h5>
-                <p class="card-text">Escape from the hustle-bustle of life and immerse yourself in nature</p>
+                <h5 class="card-title">Swaminarayan Akshardham Temple</h5>
+                <p class="card-text">The Akshardham Temple, also known as Swaminarayan Akshardham is dedicated to Lord Swaminarayan. It is known for its stunning architecture. Akshardham complex is home to India's largest step well which is a host to the mesmerising water show each evening.</p>
             </div>
         </div>
     </div>
@@ -300,8 +349,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <!-- <script src="js/dropdown.js"></script> -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
