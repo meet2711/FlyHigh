@@ -156,49 +156,6 @@
                             <p id="f_total"></p>
                         </div>
                     </div>
-
-                    <!-- <img src="../resources/images/Air-India-logo.png" style="width: 50px; height: 50px; margin-right: 10px;">
-
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Flight ID</td>
-                                <td id="f_id"></td>
-                            </tr>
-                            <tr>
-                                <td>Arrival</td>
-                                <td id="f_arr"></td>
-                            </tr>
-                            <tr>
-                                <td>Destination</td>
-                                <td id="f_des"></td>
-                            </tr>
-                            <tr>
-                                <td>Arrival Time</td>
-                                <td id="f_arr_time"></td>
-                            </tr>
-                            <tr>
-                                <td>Destination Time</td>
-                                <td id="f_des_time"></td>
-                            </tr>
-                            <tr>
-                                <td>Halts</td>
-                                <td id="f_halts"></td>
-                            </tr>
-                            <tr>
-                                <td>Price</td>
-                                <td id="f_price"></td>
-                            </tr>
-                            <tr>
-                                <td>Taxes</td>
-                                <td>$4</td>
-                            </tr>
-                            <tr>
-                                <td>Total Price</td>
-                                <td id="f_total">$</td>
-                            </tr>
-                        </tbody>
-                    </table> -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Close</button>
@@ -297,7 +254,7 @@
             @break
             @endif
             <div class="card ">
-                <img src="https://{{Session::get('imgs')[$loop->iteration]}}" class="card-img-top" alt="...">
+                <img src="{{Session::get('hotel_imgs')[$loop->iteration-1]}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{$key}}
                     </h5>
@@ -313,31 +270,21 @@
         <p style="margin-left: 20px;">Place to visit in {{Session::get('dest')}}</p>
     </div>
     <div class="card-group places">
-        <div class="card">
-            <img src="https://www.holidify.com/images/cmsuploads/compressed/5621259188_e74d63cb05_b_20180302140149.jpg" class="card-img-top" alt="...">
+        @foreach(Session::get('places') as $key => $value)
+        @if($loop->iteration > 3)
+        @break
+        @endif
+        <div class="card ">
+            <img src="{{Session::get('places_imgs')[$loop->iteration-1]}}" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Morning Walk near India Gate
+                <h5 class="card-title">{{$key}}
                 </h5>
-                </h5>
-                <p class="card-text">India Gate is a war memorial located in New Delhi, along the Rajpath. It is dedicated to the 82,000 soldiers, both Indian and British, who died during the First World War and the Third Anglo-Afghan War. India Gate looks stunning at night with the fountain displaying colourful lights. The surrounding lush green lawns are a popular picnic spot. The Amar Jawan Jyoti is also located here.</p>
+                <p class="card-text">{{$value}}</p>
                 <p class="card-text"><small class="text-muted"></small></p>
             </div>
         </div>
-        <div class="card">
-            <img src="https://www.holidify.com/images/cmsuploads/compressed/Qutub_Minar_in_the_monsoons_20170908115259.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Qutub Minar
-                </h5>
-                <p class="card-text">Qutub Minar is a minaret or a victory tower located in the Qutub complex, a UNESCO World Heritage Site in Delhi's Mehrauli area. With a height of 72.5 metres (238 ft), Qutub Minar is the second tallest monument of Delhi. The surrounding Qutub complex has lush green lawns which are popular picnic spot.</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://www.holidify.com/images/cmsuploads/compressed/attr_wiki_4067_20191212124026.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Swaminarayan Akshardham Temple</h5>
-                <p class="card-text">The Akshardham Temple, also known as Swaminarayan Akshardham is dedicated to Lord Swaminarayan. It is known for its stunning architecture. Akshardham complex is home to India's largest step well which is a host to the mesmerising water show each evening.</p>
-            </div>
-        </div>
+
+        @endforeach
     </div>
     <!-- footer from next line -->
     @include('footer')

@@ -13,18 +13,29 @@ class TempController extends Controller
 {
 
     private $results = array();
+    private $data = array();
     public function image()
     {
-        $ch = curl_init();
-        $url = 'https://www.holidify.com/places/delhi/sightseeing-and-things-to-do.html';
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $res = curl_exec($ch);
-        curl_close($ch);
-        preg_match_all('!www.holidify.com/images/cmsuploads/(.*).jpg!', $res, $data);
-        echo "<pre>";
-        print_r($data[0]);
-        return $data[0];
+        $client = new Client();
+        // $city_name = strtolower($this->city($city));
+        $url = 'https://www.holidify.com/places/delhi/hotels-where-to-stay.html';
+        $page = $client->request('GET', $url);
+        $page->filter('.collection-scrollable')->each(function ($node) {
+            $link = $node->filter('img')->attr('data-original');
+            // dd($link);
+            array_push($this->data, $link);
+        });
+        return $this->data;
+        // $ch = curl_init();
+        // $url = 'https://www.holidify.com/places/delhi/sightseeing-and-things-to-do.html';
+        // curl_setopt($ch, CURLOPT_URL, $url);
+        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // $res = curl_exec($ch);
+        // curl_close($ch);
+        // preg_match_all('!www.holidify.com/images/cmsuploads/(.*).jpg!', $res, $data);
+        // echo "<pre>";
+        // print_r($data[0]);
+        // return $data[0];
         // $the_site = "https://www.holidify.com/places/delhi/sightseeing-and-things-to-do.html";
         // $the_tag = "div"; #
         // $the_class = "slick-track";
@@ -44,6 +55,7 @@ class TempController extends Controller
     public function scraper()
     {
         $client = new Client();
+        // $city_name = strtolower($this->city($city));
         $url = 'https://www.holidify.com/places/delhi/sightseeing-and-things-to-do.html';
         $page = $client->request('GET', $url);
         // echo $page->filter('.card')->text();

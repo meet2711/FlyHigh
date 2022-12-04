@@ -3,39 +3,59 @@
 namespace App\Http\Controllers;
 
 use Goutte\Client;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class ScrapperController extends Controller
 {
     private $results = array();
+    private $data = array();
     public function scraper_hotel($city)
     {
         $client = new Client();
         $city_name = strtolower($this->city($city));
         $url = 'https://www.holidify.com/places/' . $city_name . '/hotels-where-to-stay.html';
         $page = $client->request('GET', $url);
-        // echo $page->filter('.card')->text();
         $page->filter('.hotel-metadata')->each(function ($item) {
             $this->results[$item->filter('h3')->text()] = $item->filter('.readMoreSmall')->text();
         });
 
         return $this->results;
-        // return view('new');
     }
 
-    public function image($city)
+    public function scraper_places($city)
     {
-        $ch = curl_init();
+        $client = new Client();
+        $city_name = strtolower($this->city($city));
+        $url = 'https://www.holidify.com/places/' . $city_name . '/sightseeing-and-things-to-do.html';
+        $page = $client->request('GET', $url);
+        $page->filter('.pr-md-3')->each(function ($item) {
+            $this->results[$item->filter('h3')->text()] = $item->filter('.card-text')->text();
+        });
+        return $this->results;
+    }
+
+    public function hotel_image($city)
+    {
+        $client = new Client();
         $city_name = strtolower($this->city($city));
         $url = 'https://www.holidify.com/places/' . $city_name . '/hotels-where-to-stay.html';
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $res = curl_exec($ch);
-        curl_close($ch);
-        preg_match_all('!www.holidify.com/images/cmsuploads/compressed/(.*).jpg!', $res, $data);
-        return $data[0];
+        $page = $client->request('GET', $url);
+        $page->filter('.collection-scrollable')->each(function ($node) {
+            $link = $node->filter('img')->attr('data-original');
+            array_push($this->data, $link);
+        });
+        return $this->data;
+    }
+    public function places_image($city)
+    {
+        $client = new Client();
+        $city_name = strtolower($this->city($city));
+        $url = 'https://www.holidify.com/places/' . $city_name . '/sightseeing-and-things-to-do.html';
+        $page = $client->request('GET', $url);
+        $page->filter('.collection-scrollable')->each(function ($node) {
+            $link = $node->filter('img')->attr('data-original');
+            array_push($this->data, $link);
+        });
+        return $this->data;
     }
 
     public function city($city)

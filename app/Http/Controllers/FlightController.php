@@ -16,14 +16,16 @@ class FlightController extends Controller
         if (Auth::check()) {
             $flights =  DB::table('flight_info')->where('arr', $req->arrival)->where('dep', $req->departure)->where('arr_date', $req->arrival_date)->get();
             $hotels = (new ScrapperController)->scraper_hotel($req->departure);
-            $imgs = (new ScrapperController)->image($req->departure);
+            $hotel_imgs = (new ScrapperController)->hotel_image($req->departure);
+            $places = (new ScrapperController)->scraper_places($req->departure);
+            $places_imgs = (new ScrapperController)->places_image($req->departure);
             $dest = (new ScrapperController)->city($req->departure);
             $weather = (new ScrapperController)->lat_long($dest);
             if ($req->departure_date == null) {
-                return redirect('availableflights')->with(array("flight" => $flights, "arr_date" => $req->arrival_date, "adults" => $req->adults, "hotels" => $hotels, "imgs" => $imgs, "dest" => $dest, "humid" => $weather['humid'], "temp" => $weather['temp'], "condition" => $weather['condition']));
+                return redirect('availableflights')->with(array("flight" => $flights, "arr_date" => $req->arrival_date, "adults" => $req->adults, "hotels" => $hotels, "hotel_imgs" => $hotel_imgs,"places" => $places, "places_imgs" => $places_imgs, "dest" => $dest, "humid" => $weather['humid'], "temp" => $weather['temp'], "condition" => $weather['condition']));
             } else {
                 $rf = DB::table('flight_info')->where('arr', $req->departure)->where('dep', $req->arrival)->where('arr_date', $req->departure_date)->get();
-                return redirect('availableflights')->with(array("flight" => $flights, "returnf" => $rf, "arr_date" => $req->arrival_date, "ret_date" => $req->departure_date, "adults" => $req->adults, "hotels" => $hotels, "imgs" => $imgs, "dest" => $dest, "humid" => $weather['humid'], "temp" => $weather['temp'], "condition" => $weather['condition']));
+                return redirect('availableflights')->with(array("flight" => $flights, "returnf" => $rf, "arr_date" => $req->arrival_date, "ret_date" => $req->departure_date, "adults" => $req->adults, "hotels" => $hotels, "hotel_imgs" => $hotel_imgs,"places" => $places, "places_imgs" => $places_imgs, "dest" => $dest, "humid" => $weather['humid'], "temp" => $weather['temp'], "condition" => $weather['condition']));
             }
         } else {
             return redirect('signup')->with('signin', "Please Sign-In first");

@@ -36,7 +36,7 @@ Route::post('/confirm',[FlightController::class, 'confirm']);
 Route::get('/bookings',[FlightController::class, 'show_bk']);
 Route::get('/confirmation_page',[FlightController::class, 'view_confirm']);
 Route::view('/confirmation', 'confirmation');
-// Route::get('/temp',[TempController::class, 'temp']);
+Route::get('/temp',[TempController::class, 'image']);
 
 Route::view('/signup', 'signup');
 Route::view('/signin', 'signin');
