@@ -80,8 +80,8 @@
                             <p id="f_total"></p>
                         </div>
                     </div>
-                    <div style="display: flex;align-items: centre; justify-content:center;">
-                        <button type="button" class="btn cancel_booking" style="border-radius: 5px; background-color:#93d1f0">Cancel Booking</button>
+                    <div class="modal-footer" style="display: flex;align-items: centre; justify-content:center;">
+                        <button type="button" class="btn cancel_booking" style="border-radius: 5px; background-color:#93d1f0" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
 

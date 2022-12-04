@@ -51,7 +51,7 @@
                         <div style="display: flex;">
                             <i class="fa fa-plane-departure form_icon"></i>
                             <div>
-                                <input type="text" name="arrival" class="form-input" placeholder="From where?" required>
+                                <input type="text" name="arrival" class="form-input" placeholder="From where?" required autocomplete="off">
                             </div>
                         </div>
                     </div>
@@ -59,17 +59,17 @@
                         <div style="display: flex;">
                             <i class="fa-solid fa-plane-arrival form_icon"></i>
                             <div>
-                                <input type="text" id="abc" name="departure" class="form-input" placeholder="Where to?" required>
+                                <input type="text" id="abc" name="departure" class="form-input" placeholder="Where to?" required autocomplete="off">
                             </div>
                         </div>
                     </div>
                     <div>
-                        <input type="text" class="form-input" id="datefield" name="arrival_date" placeholder="Departure: &nbsp" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+                        <input type="text" class="form-input" id="datefield" name="arrival_date" placeholder="Departure: &nbsp" onfocus="(this.type='date')" onblur="(this.type='text')" required autocomplete="off">
                     </div>
                     <div>
                         <div id="optional-field">
                             <div>
-                                <input type="text" class="form-input" id="datefield1" name="departure_date" placeholder="Return: &nbsp" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                <input type="text" class="form-input" id="datefield1" name="departure_date" placeholder="Return: &nbsp" onfocus="(this.type='date')" onblur="(this.type='text')" autocomplete="off">
                             </div>
                         </div>
                     </div>

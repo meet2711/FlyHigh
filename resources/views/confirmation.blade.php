@@ -51,7 +51,7 @@
             <div>
                 <h4 class="bold"><strong>Bon voyage, {{$data['name']}}!</strong></h4>
                 <p>Confirmation number: #{{$data['bid']}}</p>
-                <p style="width: 90%;">Thank you for booking your travel with FlyHigh! Below is a summary of your trip to Delhi. We’ve sent a copy of your booking confirmation to your email address. You can also find this page again in <span class="bold">My trips</span>.</p>
+                <p style="width: 90%;">Thank you for booking your travel with FlyHigh! Below is a summary of your trip to Delhi. We’ve sent a copy of your booking confirmation to your email address. You can also find this page again in <span class="bold">My bookings</span>.</p>
             </div>
             <div>
                 <hr>
@@ -118,7 +118,7 @@
                         @if($data['rflight'] != null)
                         <p>${{$data['flight'][0]->price + $data['rflight'][0]->price}} x {{$data['adults']->number}} = ${{($data['flight'][0]->price + $data['rflight'][0]->price)* $data['adults']->number }}</p>
                         @else
-                        <p>${{$data['flight'][0]->price}} x {{$data['adults']->number}}${{$data['flight'][0]->price * $data['adults']->number }}</p>
+                        <p>${{$data['flight'][0]->price}} x {{$data['adults']->number}} = ${{$data['flight'][0]->price * $data['adults']->number }}</p>
                         @endif
                         <p>$100</p>
                         @if($data['rflight'] != null)
@@ -159,7 +159,7 @@
                     @break
                     @endif
                     <div class="card ">
-                        <img src="https://{{$data['imgs'][$loop->iteration]}}" class="card-img-top" alt="...">
+                        <img src="{{$data['imgs'][$loop->iteration-1]}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{$key}}
                             </h5>

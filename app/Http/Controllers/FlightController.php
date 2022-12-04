@@ -102,7 +102,7 @@ class FlightController extends Controller
         if (sizeof($flights) > 1)
             $return_flight = DB::table('flight_info')->where('id', $flights[1])->get();
         $hotels = (new ScrapperController)->scraper_hotel($flight[0]->dep);
-        $imgs = (new ScrapperController)->image($flight[0]->dep);
+        $imgs = (new ScrapperController)->hotel_image($flight[0]->dep);
         if (sizeof($flights) > 1) {
             $data = [
                 "bid" => $id,
